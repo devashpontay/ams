@@ -68,17 +68,29 @@ public class RegistrationForm extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI Emoji", 0, 10)); // NOI18N
         jLabel3.setText("FULL NAME");
 
-        clientFullName.setText(" ");
+        clientFullName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clientFullNameActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Segoe UI Emoji", 0, 10)); // NOI18N
         jLabel4.setText("EMAIL ");
 
-        clientEmail.setText(" ");
+        clientEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clientEmailActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Segoe UI Emoji", 0, 10)); // NOI18N
         jLabel5.setText("CONTACT NO");
 
-        clientContactNo.setText(" ");
+        clientContactNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clientContactNoActionPerformed(evt);
+            }
+        });
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Emoji", 0, 10)); // NOI18N
         jLabel6.setText("FLOOR CHOICE NO");
@@ -210,7 +222,6 @@ public class RegistrationForm extends javax.swing.JFrame {
 
     private void floorChoiceNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floorChoiceNoActionPerformed
         // TODO add your handling code here:
-
         
         if(floorChoiceNo.getSelectedItem().equals("1")) {
             unitChoiceNo.removeAllItems();
@@ -253,7 +264,7 @@ public class RegistrationForm extends javax.swing.JFrame {
         BufferedWriter writer;
         try {
             writer = new BufferedWriter(new FileWriter("regForm.txt"));
-            writer.write(randomId + "@" + name + "@" + email + "@" + "@" + contact + "@" + floorNo + "@" + unitNo);
+            writer.write(randomId + "@" + name + "@" + email + "@" + contact + "@" + floorNo + "@" + unitNo);
             writer.close();
         } catch (IOException ex) {
             Logger.getLogger(RegistrationForm.class.getName()).log(Level.SEVERE, null, ex);
@@ -282,6 +293,19 @@ public class RegistrationForm extends javax.swing.JFrame {
     private void floorChoiceNoInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_floorChoiceNoInputMethodTextChanged
 
     }//GEN-LAST:event_floorChoiceNoInputMethodTextChanged
+
+    private void clientFullNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientFullNameActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_clientFullNameActionPerformed
+
+    private void clientEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientEmailActionPerformed
+        
+    }//GEN-LAST:event_clientEmailActionPerformed
+
+    private void clientContactNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientContactNoActionPerformed
+
+    }//GEN-LAST:event_clientContactNoActionPerformed
 
     /**
      * @param args the command line arguments

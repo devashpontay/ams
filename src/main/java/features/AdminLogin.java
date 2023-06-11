@@ -42,7 +42,6 @@ public class AdminLogin extends javax.swing.JFrame {
         setBackground(new java.awt.Color(204, 204, 204));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI Emoji", 1, 24)); // NOI18N
         jLabel1.setText("ADMIN LOGIN");
@@ -85,7 +84,7 @@ public class AdminLogin extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(51, 102, 255));
         jLabel4.setText("Forgot Password?");
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ashley Pontay\\Desktop\\ams\\src\\main\\java\\resources\\admin_logo.png")); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Admin Billona\\Desktop\\ams\\src\\main\\java\\resources\\admin_logo.png")); // NOI18N
 
         jPasswordField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
@@ -139,8 +138,8 @@ public class AdminLogin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
-                .addGap(58, 58, 58))
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

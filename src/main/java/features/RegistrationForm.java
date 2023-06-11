@@ -57,9 +57,8 @@ public class RegistrationForm extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
 
-        regFormImg.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ashley Pontay\\Desktop\\ams\\src\\main\\java\\resources\\form_img.png")); // NOI18N
+        regFormImg.setIcon(new javax.swing.ImageIcon("C:\\Users\\Admin Billona\\Desktop\\ams\\src\\main\\java\\resources\\form_img.png")); // NOI18N
 
         regFormLabel.setFont(new java.awt.Font("Segoe UI Emoji", 1, 14)); // NOI18N
         regFormLabel.setText("REGISTRATION FORM");

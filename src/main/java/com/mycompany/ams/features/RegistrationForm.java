@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package features;
+package com.mycompany.ams.features;
 
 import javax.swing.JOptionPane;
 import java.io.BufferedWriter;
@@ -131,6 +131,11 @@ public class RegistrationForm extends javax.swing.JFrame {
         regFormCancelBtn.setBackground(new java.awt.Color(153, 255, 255));
         regFormCancelBtn.setFont(new java.awt.Font("Segoe UI Semibold", 1, 12)); // NOI18N
         regFormCancelBtn.setText("CANCEL");
+        regFormCancelBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                regFormCancelBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -263,10 +268,10 @@ public class RegistrationForm extends javax.swing.JFrame {
         BufferedWriter writer;
         try {
             writer = new BufferedWriter(new FileWriter("regForm.txt"));
-            writer.write(randomId + "@" + name + "@" + email + "@" + contact + "@" + floorNo + "@" + unitNo);
+            writer.write(randomId + "@" + name + "@" + email + "@" + contact + "@" + floorNo + "@" + unitNo + "@" + "0" + "@" + "35999");
             writer.close();
-        } catch (IOException ex) {
-            Logger.getLogger(RegistrationForm.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException e) {
+            Logger.getLogger(RegistrationForm.class.getName()).log(Level.SEVERE, null, e);
         }
 
         clientFullName.setText(null);
@@ -305,6 +310,10 @@ public class RegistrationForm extends javax.swing.JFrame {
     private void clientContactNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientContactNoActionPerformed
 
     }//GEN-LAST:event_clientContactNoActionPerformed
+
+    private void regFormCancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regFormCancelBtnActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_regFormCancelBtnActionPerformed
 
     /**
      * @param args the command line arguments

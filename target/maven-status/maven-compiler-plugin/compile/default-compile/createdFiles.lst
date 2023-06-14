@@ -9,6 +9,7 @@ com\mycompany\ams\features\RegistrationForm$3.class
 com\mycompany\ams\features\RegistrationForm$1.class
 com\mycompany\ams\features\RegistrationForm$7.class
 com\mycompany\ams\features\AdminLogin$3.class
+com\mycompany\ams\features\AdminLogin$CancelButtonListener.class
 com\mycompany\ams\features\RegistrationForm$6.class
 com\mycompany\ams\features\TenantsList$3.class
 com\mycompany\ams\features\RegistrationForm$2.class
@@ -17,5 +18,6 @@ com\mycompany\ams\features\TenantsList$2.class
 com\mycompany\ams\features\RegistrationForm$5.class
 com\mycompany\ams\features\RegistrationForm$4.class
 com\mycompany\ams\features\AdminLogin$4.class
+com\mycompany\ams\features\AdminLogin$LoginButtonListener.class
 com\mycompany\ams\features\TenantsList$1.class
 com\mycompany\ams\Ams.class

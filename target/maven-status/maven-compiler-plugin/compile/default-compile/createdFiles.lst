@@ -1,23 +1,39 @@
-com\mycompany\ams\features\AdminLogin$2.class
 com\mycompany\ams\features\RegistrationForm$9.class
-com\mycompany\ams\features\AdminLogin.class
-com\mycompany\ams\features\RegistrationForm$8.class
 com\mycompany\ams\features\AdminLogin$1.class
 com\mycompany\ams\features\RegistrationForm.class
 com\mycompany\ams\features\TenantsList.class
-com\mycompany\ams\features\RegistrationForm$3.class
-com\mycompany\ams\features\RegistrationForm$1.class
 com\mycompany\ams\features\RegistrationForm$7.class
 com\mycompany\ams\features\AdminLogin$3.class
+<<<<<<< Updated upstream
 com\mycompany\ams\features\AdminLogin$CancelButtonListener.class
 com\mycompany\ams\features\RegistrationForm$6.class
 com\mycompany\ams\features\TenantsList$3.class
+=======
+com\mycompany\ams\features\EditingForm$1.class
+>>>>>>> Stashed changes
 com\mycompany\ams\features\RegistrationForm$2.class
-com\mycompany\ams\features\AdminLogin$5.class
+com\mycompany\ams\features\EditingForm$5.class
 com\mycompany\ams\features\TenantsList$2.class
 com\mycompany\ams\features\RegistrationForm$5.class
-com\mycompany\ams\features\RegistrationForm$4.class
+com\mycompany\ams\features\EditingForm$6.class
 com\mycompany\ams\features\AdminLogin$4.class
+<<<<<<< Updated upstream
 com\mycompany\ams\features\AdminLogin$LoginButtonListener.class
 com\mycompany\ams\features\TenantsList$1.class
+=======
+com\mycompany\ams\features\EditingForm$3.class
+>>>>>>> Stashed changes
 com\mycompany\ams\Ams.class
+com\mycompany\ams\features\AdminLogin$2.class
+com\mycompany\ams\features\AdminLogin.class
+com\mycompany\ams\features\RegistrationForm$8.class
+com\mycompany\ams\features\EditingForm$4.class
+com\mycompany\ams\features\RegistrationForm$3.class
+com\mycompany\ams\features\RegistrationForm$1.class
+com\mycompany\ams\features\RegistrationForm$6.class
+com\mycompany\ams\features\TenantsList$3.class
+com\mycompany\ams\features\AdminLogin$5.class
+com\mycompany\ams\features\EditingForm.class
+com\mycompany\ams\features\RegistrationForm$4.class
+com\mycompany\ams\features\EditingForm$2.class
+com\mycompany\ams\features\TenantsList$1.class

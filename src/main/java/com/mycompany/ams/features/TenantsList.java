@@ -4,19 +4,24 @@
  */
 package com.mycompany.ams.features;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Ashley Pontay
  */
-public class TenantsList extends javax.swing.JFrame {
 
-    /**
-     * Creates new form TenantsList
-     */
+
+public class TenantsList extends javax.swing.JFrame {
+    
     public TenantsList() {
         initComponents();
+        rowInit();
     }
 
     /**
@@ -45,14 +50,10 @@ public class TenantsList extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "No.", "Name", "Room No.", "Floor No."
+                "No.", "Name", "Floor No.", "Unit No."
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -63,6 +64,7 @@ public class TenantsList extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable1.setRowHeight(27);
         jTable1.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTable1);
         if (jTable1.getColumnModel().getColumnCount() > 0) {
@@ -88,6 +90,11 @@ public class TenantsList extends javax.swing.JFrame {
         });
 
         jButton2.setText("BACK");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -139,16 +146,63 @@ public class TenantsList extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         int row = jTable1.getSelectedRow();
-        DefaultTableModel tableModel = (DefaultTableModel) jTable1.getModel();
         
+        if(jTable1.getRowCount() == 0) {
+            JOptionPane.showMessageDialog(null, "There are no tenants to show.");
+        }else if(row == -1) {
+            JOptionPane.showMessageDialog(null, "Please select a row!");
+        }else {
+            EditingForm editForm = new EditingForm(tenantsIdNo.get(row));
+            editForm.show();
+            dispose();
+        }
+        
+            
+        
+//        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void rowDataInit() {
-        DefaultTableModel tableModel = (DefaultTableModel) jTable1.getModel();
-        
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        AdminPage adminPage = new AdminPage();
+        adminPage.show();
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+  
+    ArrayList<String> tenantsIdNo = new ArrayList<>();
+    private void rowInit() {
+        BufferedReader reader;
+        try {
+            reader = new BufferedReader(new FileReader("TenantsDB.txt"));
+            String line;
+            int index = 1;
+            int ctr = 0;
+            while((line = reader.readLine()) != null) {
+                String[] data = line.split("/");
+                tenantsIdNo.add(data[0]);
+                Object[] rowData = {
+                    index,
+                    data[1],
+                    data[6],
+                    data[7]
+                };
+                
+                DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+                model.addRow(rowData);
+                index++; 
+                ctr++;
+            }
+            reader.close();
+        }catch(IOException e) {
+            e.printStackTrace();
+        }
         
     }
+        
+    
+    
+    
+    
     /**
      * @param args the command line arguments
      */

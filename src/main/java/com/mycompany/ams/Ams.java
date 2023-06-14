@@ -4,7 +4,7 @@
 
 package com.mycompany.ams;
 
-import com.mycompany.ams.features.AdminLogin;
+import com.mycompany.ams.features.LandingPage;
 
 /**
  *
@@ -13,10 +13,10 @@ import com.mycompany.ams.features.AdminLogin;
 public class Ams {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
-        
-//        java.awt.EventQueue.invokeLater(() -> {
-//            new AdminLogin().setVisible(true);
-//        });
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new LandingPage().setVisible(true);
+            }
+        });
     }
 }

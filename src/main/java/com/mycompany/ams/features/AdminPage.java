@@ -28,7 +28,7 @@ public class AdminPage extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        displayTenantsBtn = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -53,13 +53,13 @@ public class AdminPage extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(208, 49, 49));
         jButton1.setText("Add Tenant");
 
-        jButton2.setBackground(new java.awt.Color(239, 220, 220));
-        jButton2.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(208, 49, 49));
-        jButton2.setText("Display List");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        displayTenantsBtn.setBackground(new java.awt.Color(239, 220, 220));
+        displayTenantsBtn.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        displayTenantsBtn.setForeground(new java.awt.Color(208, 49, 49));
+        displayTenantsBtn.setText("Display List");
+        displayTenantsBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                displayTenantsBtnActionPerformed(evt);
             }
         });
 
@@ -133,7 +133,7 @@ public class AdminPage extends javax.swing.JFrame {
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(39, 39, 39)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(displayTenantsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(46, 46, 46)
                             .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(45, 45, 45)
@@ -200,7 +200,7 @@ public class AdminPage extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(displayTenantsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(110, 110, 110))
@@ -209,9 +209,11 @@ public class AdminPage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void displayTenantsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayTenantsBtnActionPerformed
+        TenantsList tnantsList = new TenantsList();
+        tnantsList.show();
+        dispose();
+    }//GEN-LAST:event_displayTenantsBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -246,11 +248,13 @@ public class AdminPage extends javax.swing.JFrame {
                 new AdminPage().setVisible(true);
             }
         });
+        
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton displayTenantsBtn;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;

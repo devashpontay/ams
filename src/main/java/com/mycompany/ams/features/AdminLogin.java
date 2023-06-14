@@ -178,10 +178,11 @@ public class AdminLogin extends javax.swing.JFrame {
             boolean accountExists = checkAccount(username, password);
 
             if (accountExists) {
-                JOptionPane.showMessageDialog(null, "Login successful!");
-                // Code to proceed to the next frame or perform other actions after successful login
+                AdminPage adminpg = new AdminPage();
+                adminpg.show();
+                dispose();
             } else {
-                JOptionPane.showMessageDialog(null, "Account not registered!");
+                JOptionPane.showMessageDialog(null, "Wrong username or password!");
             }
         }
     }

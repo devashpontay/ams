@@ -4,17 +4,38 @@
  */
 package com.mycompany.ams.features;
 //import javax.swing.JOptionPane;
+
+import com.mycompany.ams.features.data_struct.MyLinkedList;
+import com.mycompany.ams.features.data_struct.Node;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Ezekiel Billona
  */
 public class EditingForm extends javax.swing.JFrame {
-
+    String selectedTenantIdNo;
+    MyLinkedList linkedList = new MyLinkedList();
     /**
      * Creates new form EditingForm
+     * @param idNo
      */
     public EditingForm() {
         initComponents();
+    }
+    
+    public EditingForm(String idNo) { // constructor that accepts an argument
+        initComponents();
+        this.selectedTenantIdNo = idNo;
+        initFields();
     }
 
     /**
@@ -29,7 +50,7 @@ public class EditingForm extends javax.swing.JFrame {
         BackgroundP = new javax.swing.JPanel();
         layer2bg = new javax.swing.JPanel();
         fname = new javax.swing.JLabel();
-        clientFullname = new javax.swing.JLabel();
+        clientFullName = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         clientContact = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -60,8 +81,8 @@ public class EditingForm extends javax.swing.JFrame {
 
         fname.setText("FULLNAME");
 
-        clientFullname.setText(" ");
-        clientFullname.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        clientFullName.setText(" ");
+        clientFullName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel2.setText("CONTACT NO");
 
@@ -83,7 +104,7 @@ public class EditingForm extends javax.swing.JFrame {
         clientDeposit.setText(" ");
         clientDeposit.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel6.setText("ROOM NO");
+        jLabel6.setText("UNIT NO");
 
         jLabel7.setText("FLOOR NO");
 
@@ -111,6 +132,11 @@ public class EditingForm extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(0, 153, 153));
         jButton1.setText("SAVE");
         jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(0, 153, 153));
         jButton2.setText("DELETE");
@@ -124,6 +150,11 @@ public class EditingForm extends javax.swing.JFrame {
         jButton3.setBackground(new java.awt.Color(0, 153, 153));
         jButton3.setText("CANCEL");
         jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jLabel11.setFont(new java.awt.Font("PMingLiU-ExtB", 1, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 153));
@@ -144,7 +175,6 @@ public class EditingForm extends javax.swing.JFrame {
             }
         });
 
-        logo.setIcon(new javax.swing.ImageIcon("E:\\computer files\\Desktop\\ams\\src\\main\\java\\resources\\edit_img.png")); // NOI18N
         logo.setText(" ");
 
         javax.swing.GroupLayout layer2bgLayout = new javax.swing.GroupLayout(layer2bg);
@@ -193,7 +223,7 @@ public class EditingForm extends javax.swing.JFrame {
                                         .addGap(6, 6, 6)
                                         .addGroup(layer2bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layer2bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(clientFullname, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+                                                .addComponent(clientFullName, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
                                                 .addComponent(clientContact, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addComponent(clientEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                             .addComponent(clientBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -223,33 +253,33 @@ public class EditingForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layer2bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layer2bgLayout.createSequentialGroup()
-                        .addGroup(layer2bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(clientFullname)
-                            .addComponent(clientDeposit))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layer2bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(clientDeposit, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(clientFullName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layer2bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layer2bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(clientContact)
-                            .addComponent(clientRoom))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layer2bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(clientRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(clientContact, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layer2bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(jLabel7))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layer2bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(clientEmail)
-                            .addComponent(clientFloor))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layer2bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(clientFloor, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(clientEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(clientBalance)
+                        .addComponent(clientBalance, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(51, 51, 51))
                     .addGroup(layer2bgLayout.createSequentialGroup()
                         .addGroup(layer2bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(newInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(newInput, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel12))
                         .addGap(18, 18, 18)
                         .addGroup(layer2bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -280,10 +310,7 @@ public class EditingForm extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(BackgroundP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(BackgroundP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -295,8 +322,103 @@ public class EditingForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+  
+    
+    private void initFields() {
+        
+        BufferedReader reader;
+        try {
+            reader = new BufferedReader(new FileReader("TenantsDB.txt"));
+            String line;
+            int ctr = 0;
+            while((line = reader.readLine()) != null) {
+                String[] data = line.split("/");
+                
+                linkedList.add(data[0], data[1], data[2], data[3], Integer.parseInt(data[4]), Integer.parseInt(data[5]), Integer.parseInt(data[6]), Integer.parseInt(data[7]));    
+            }
+            reader.close();
+        }catch(IOException e) {
+            e.printStackTrace();
+        }
+        
+        Node currentNode = linkedList.head;
+        
+        while((currentNode != null) && !(currentNode.getIdNo().equals(selectedTenantIdNo))) {
+            currentNode = currentNode.next;
+        }
+        
+        clientFullName.setText(currentNode.getFullname());
+        clientContact.setText(currentNode.getContactNo());
+        clientEmail.setText(currentNode.getEmail());
+        clientBalance.setText(String.valueOf(currentNode.getBalance()));
+        clientDeposit.setText(String.valueOf(currentNode.getSecurityDeposit()));
+        clientRoom.setText(String.valueOf(currentNode.getUnitNo()));
+        clientFloor.setText(String.valueOf(currentNode.getFloorNo()));
+        
+    }
+    
+    private void saveEditedData() {
+        Node currentNode = linkedList.head;
+
+        
+        while((currentNode != null) && !(currentNode.getIdNo().equals(selectedTenantIdNo))){
+            currentNode = currentNode.next;
+        }
+        
+        currentNode.setFullname(clientFullName.getText());
+        currentNode.setContactNo(clientContact.getText());
+        currentNode.setEmail(clientEmail.getText());
+        currentNode.setBalance(Integer.parseInt(clientBalance.getText()));
+        currentNode.setSecurityDeposit(Integer.parseInt(clientDeposit.getText()));
+        currentNode.setFloorNo(Integer.parseInt(clientFloor.getText()));
+        currentNode.setUnitNo(Integer.parseInt(clientRoom.getText()));      
+        saveToDB();
+    }
+    
+    private void deleteData() {
+        Node p ,q;
+        p = q = linkedList.head;
+        
+        if(p.getIdNo().equals(selectedTenantIdNo)) {
+            linkedList.head = linkedList.head.next;
+            return;
+        }
+        
+        while(p != null && !(p.getIdNo().equals(selectedTenantIdNo))) {
+            q = p;
+            p = p.next;
+        }
+        
+        q.next = p.next;
+        
+    }
+    
+    private void saveToDB(){
+        Node currentNode = linkedList.head;
+        
+        BufferedWriter writer;
+        try {
+            writer = new BufferedWriter(new FileWriter("TenantsDB.txt"));
+            while(currentNode != null) {
+                writer.write(currentNode.getIdNo() + "/" + currentNode.getFullname() + "/" + currentNode.getContactNo() + "/" + currentNode.getEmail() + "/" + currentNode.getBalance() + "/" + currentNode.getSecurityDeposit() + "/" + currentNode.getFloorNo() + "/" + currentNode.getUnitNo() + "\n");
+                currentNode = currentNode.next;
+            }
+            writer.close();
+        } catch (IOException e) {
+            Logger.getLogger(RegistrationForm.class.getName()).log(Level.SEVERE, null, e);
+        }
+    }
+    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        deleteData();
+        saveToDB();
+        int okBtn = JOptionPane.showOptionDialog(null, "Tenant was successfully deleted!", "Confirmation", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, new Object[]{"OK"}, "OK");
+        if(okBtn == JOptionPane.OK_OPTION) {
+            TenantsList tnantsList = new TenantsList();
+            tnantsList.show();
+            dispose();
+        }
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void newInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newInputActionPerformed
@@ -314,7 +436,7 @@ public class EditingForm extends javax.swing.JFrame {
         String newText = newInput.getText();
         
         if(field.getSelectedItem().equals("FULLNAME")){
-            clientFullname.setText(newText);
+            clientFullName.setText(newText);
         }else if(field.getSelectedItem().equals("CONTACT NO")){
             clientContact.setText(newText);
         }else if(field.getSelectedItem().equals("EMAIL")){
@@ -335,6 +457,23 @@ public class EditingForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         newInput.setText(null);
     }//GEN-LAST:event_fieldActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        saveEditedData();
+        
+        int okBtn = JOptionPane.showOptionDialog(null, "Edit successful! Changes are saved.", "Confirmation", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, new Object[]{"OK"}, "OK");
+        if(okBtn == JOptionPane.OK_OPTION) {
+            TenantsList tnantsList = new TenantsList();
+            tnantsList.show();
+            dispose();
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        TenantsList tnantsList = new TenantsList();
+        tnantsList.show();
+        dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -378,7 +517,7 @@ public class EditingForm extends javax.swing.JFrame {
     private javax.swing.JLabel clientDeposit;
     private javax.swing.JLabel clientEmail;
     private javax.swing.JLabel clientFloor;
-    private javax.swing.JLabel clientFullname;
+    private javax.swing.JLabel clientFullName;
     private javax.swing.JLabel clientRoom;
     private javax.swing.JComboBox<String> field;
     private javax.swing.JLabel fname;

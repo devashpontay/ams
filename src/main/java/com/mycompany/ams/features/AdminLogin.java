@@ -4,13 +4,6 @@
  */
 package com.mycompany.ams.features;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author Ezekiel Billona
@@ -22,15 +15,7 @@ public class AdminLogin extends javax.swing.JFrame {
      */
     public AdminLogin() {
         initComponents();
-        
-        jButton1.addActionListener(new LoginButtonListener());
-
-        jButton2.addActionListener(new CancelButtonListener());
     }
-    
-    
-    
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -169,53 +154,6 @@ public class AdminLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private class LoginButtonListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            String username = jTextField1.getText();
-            String password = new String(jPasswordField1.getPassword());
-
-            boolean accountExists = checkAccount(username, password);
-
-            if (accountExists) {
-                JOptionPane.showMessageDialog(null, "Login successful!");
-                // Code to proceed to the next frame or perform other actions after successful login
-            } else {
-                JOptionPane.showMessageDialog(null, "Account not registered!");
-            }
-        }
-    }
-
-    private class CancelButtonListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            dispose();
-            // Code to go back to the starting interface or perform other actions on cancel
-        }
-    }
-
-    private boolean checkAccount(String username, String password) {
-        try {
-            FileReader fileReader = new FileReader("accounts.txt");
-            try (BufferedReader bufferedReader = new BufferedReader(fileReader)) {
-                String line;
-                while ((line = bufferedReader.readLine()) != null) {
-                    String[] parts = line.split(":");
-                    String storedUsername = parts[0];
-                    String storedPassword = parts[1];
-
-                    if (storedUsername.equals(username) && storedPassword.equals(password)) {
-                        bufferedReader.close();
-                        return true;
-                    }
-                }
-            }
-        } catch (IOException e) {
-        }
-
-        return false;
-    }
-    
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed

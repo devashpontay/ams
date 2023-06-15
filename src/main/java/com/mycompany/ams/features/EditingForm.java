@@ -75,47 +75,63 @@ public class EditingForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        BackgroundP.setBackground(new java.awt.Color(0, 153, 102));
+        BackgroundP.setBackground(new java.awt.Color(208, 49, 49));
 
         layer2bg.setBackground(new java.awt.Color(255, 255, 255));
 
+        fname.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         fname.setText("FULLNAME");
 
+        clientFullName.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         clientFullName.setText(" ");
         clientFullName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel2.setText("CONTACT NO");
 
+        clientContact.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         clientContact.setText(" ");
         clientContact.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel4.setText("EMAIL");
 
+        clientEmail.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         clientEmail.setText(" ");
         clientEmail.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel1.setText("BALANCE DUE");
 
+        clientBalance.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         clientBalance.setText(" ");
         clientBalance.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel3.setText("SECURITY DEPOSIT");
 
+        clientDeposit.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         clientDeposit.setText(" ");
         clientDeposit.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel6.setText("UNIT NO");
 
+        jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel7.setText("FLOOR NO");
 
+        clientFloor.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         clientFloor.setText(" ");
         clientFloor.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        clientRoom.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         clientRoom.setText(" ");
         clientRoom.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        jLabel10.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel10.setText("FIELD");
 
+        field.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         field.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "FULLNAME", "CONTACT NO", "EMAIL", "BALANCE DUE", "SECURITY DEPOSIT", "ROOM NO", "FLOOR NO" }));
         field.setSelectedItem(null);
         field.addActionListener(new java.awt.event.ActionListener() {
@@ -129,7 +145,9 @@ public class EditingForm extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(0, 153, 153));
+        jButton1.setBackground(new java.awt.Color(208, 49, 49));
+        jButton1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(244, 245, 244));
         jButton1.setText("SAVE");
         jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -138,7 +156,9 @@ public class EditingForm extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(0, 153, 153));
+        jButton2.setBackground(new java.awt.Color(208, 49, 49));
+        jButton2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(244, 245, 244));
         jButton2.setText("DELETE");
         jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -147,7 +167,9 @@ public class EditingForm extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(0, 153, 153));
+        jButton3.setBackground(new java.awt.Color(208, 49, 49));
+        jButton3.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(244, 245, 244));
         jButton3.setText("CANCEL");
         jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -156,13 +178,14 @@ public class EditingForm extends javax.swing.JFrame {
             }
         });
 
-        jLabel11.setFont(new java.awt.Font("PMingLiU-ExtB", 1, 18)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 153));
         jLabel11.setText("EDITING INFORMATION");
 
+        jLabel12.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel12.setText("NEW VALUE");
 
-        newInput.setFont(new java.awt.Font("Segoe UI Symbol", 0, 12)); // NOI18N
+        newInput.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         newInput.setText(" ");
         newInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -320,6 +343,7 @@ public class EditingForm extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
   

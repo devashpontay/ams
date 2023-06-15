@@ -17,6 +17,7 @@ com\mycompany\ams\features\AdminLogin$2.class
 com\mycompany\ams\features\AdminLogin.class
 com\mycompany\ams\features\LandingPage$4.class
 com\mycompany\ams\features\RegistrationForm$8.class
+com\mycompany\ams\features\TenantsList$5.class
 com\mycompany\ams\features\EditingForm$4.class
 com\mycompany\ams\features\RegistrationForm$1.class
 com\mycompany\ams\features\AddTenant$3.class

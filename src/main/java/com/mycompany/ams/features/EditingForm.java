@@ -179,7 +179,7 @@ public class EditingForm extends javax.swing.JFrame {
         });
 
         jLabel11.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel11.setForeground(new java.awt.Color(221, 48, 49));
         jLabel11.setText("EDITING INFORMATION");
 
         jLabel12.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N

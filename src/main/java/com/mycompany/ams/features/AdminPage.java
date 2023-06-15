@@ -4,6 +4,8 @@
  */
 package com.mycompany.ams.features;
 
+import javax.swing.JButton;
+
 /**
  *
  * @author finns
@@ -27,10 +29,10 @@ public class AdminPage extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        displayTenantsBtn = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        addTenantBtn = new javax.swing.JButton();
+        tenantsListBtn = new javax.swing.JButton();
+        unitsListBtn = new javax.swing.JButton();
+        pendingBtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -48,30 +50,35 @@ public class AdminPage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setBackground(new java.awt.Color(239, 220, 220));
-        jButton1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(208, 49, 49));
-        jButton1.setText("Add Tenant");
-
-        displayTenantsBtn.setBackground(new java.awt.Color(239, 220, 220));
-        displayTenantsBtn.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        displayTenantsBtn.setForeground(new java.awt.Color(208, 49, 49));
-        displayTenantsBtn.setText("Display List");
-        displayTenantsBtn.addActionListener(new java.awt.event.ActionListener() {
+        addTenantBtn.setBackground(new java.awt.Color(239, 220, 220));
+        addTenantBtn.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        addTenantBtn.setForeground(new java.awt.Color(208, 49, 49));
+        addTenantBtn.setText("Add Tenant");
+        addTenantBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                displayTenantsBtnActionPerformed(evt);
+                addTenantBtnActionPerformed(evt);
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(239, 220, 220));
-        jButton3.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(208, 49, 49));
-        jButton3.setText("Display Units");
+        tenantsListBtn.setBackground(new java.awt.Color(239, 220, 220));
+        tenantsListBtn.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        tenantsListBtn.setForeground(new java.awt.Color(208, 49, 49));
+        tenantsListBtn.setText("Display List");
+        tenantsListBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tenantsListBtnActionPerformed(evt);
+            }
+        });
 
-        jButton4.setBackground(new java.awt.Color(239, 220, 220));
-        jButton4.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(208, 49, 49));
-        jButton4.setText("Pending Transact");
+        unitsListBtn.setBackground(new java.awt.Color(239, 220, 220));
+        unitsListBtn.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        unitsListBtn.setForeground(new java.awt.Color(208, 49, 49));
+        unitsListBtn.setText("Display Units");
+
+        pendingBtn.setBackground(new java.awt.Color(239, 220, 220));
+        pendingBtn.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        pendingBtn.setForeground(new java.awt.Color(208, 49, 49));
+        pendingBtn.setText("Pending Transact");
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 60)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(208, 49, 49));
@@ -131,13 +138,13 @@ public class AdminPage extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(addTenantBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(39, 39, 39)
-                            .addComponent(displayTenantsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tenantsListBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(46, 46, 46)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(unitsListBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(45, 45, 45)
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pendingBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(113, 113, 113))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -199,10 +206,10 @@ public class AdminPage extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(displayTenantsBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(addTenantBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tenantsListBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(unitsListBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pendingBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(110, 110, 110))
         );
 
@@ -210,11 +217,23 @@ public class AdminPage extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void displayTenantsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayTenantsBtnActionPerformed
+    private void tenantsListBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tenantsListBtnActionPerformed
         TenantsList tnantsList = new TenantsList();
         tnantsList.show();
-        dispose();
-    }//GEN-LAST:event_displayTenantsBtnActionPerformed
+        addTenantBtn.setEnabled(false);
+        tenantsListBtn.setEnabled(false);
+        unitsListBtn.setEnabled(false);
+        pendingBtn.setEnabled(false);
+    }//GEN-LAST:event_tenantsListBtnActionPerformed
+
+    private void addTenantBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTenantBtnActionPerformed
+        AddTenant addTenant = new AddTenant();
+        addTenant.show();
+        addTenantBtn.setEnabled(false);
+        tenantsListBtn.setEnabled(false);
+        unitsListBtn.setEnabled(false);
+        pendingBtn.setEnabled(false);
+    }//GEN-LAST:event_addTenantBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -250,14 +269,29 @@ public class AdminPage extends javax.swing.JFrame {
             }
         });
         
-        
     }
 
+    public static JButton getAddTenantBtn() {
+        return addTenantBtn;
+    }
+
+    public static JButton getPendingBtn() {
+        return pendingBtn;
+    }
+
+    public static JButton getTenantsListBtn() {
+        return tenantsListBtn;
+    }
+
+    public static JButton getUnitsListBtn() {
+        return unitsListBtn;
+    }
+    
+    
+    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton displayTenantsBtn;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private static javax.swing.JButton addTenantBtn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -273,5 +307,8 @@ public class AdminPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private static javax.swing.JButton pendingBtn;
+    private static javax.swing.JButton tenantsListBtn;
+    private static javax.swing.JButton unitsListBtn;
     // End of variables declaration//GEN-END:variables
 }

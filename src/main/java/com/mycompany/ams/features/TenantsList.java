@@ -8,6 +8,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -162,6 +163,8 @@ public class TenantsList extends javax.swing.JFrame {
         }else if(row == -1) {
             JOptionPane.showMessageDialog(null, "Please select a row!");
         }else {
+            System.out.println(row);
+            System.out.println(tenantsIdNo.get(row));
             EditingForm editForm = new EditingForm(tenantsIdNo.get(row));
             editForm.show();
             dispose();
@@ -174,8 +177,14 @@ public class TenantsList extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        AdminPage adminPage = new AdminPage();
-        adminPage.show();
+        JButton addTenantBtn = AdminPage.getAddTenantBtn();
+        addTenantBtn.setEnabled(true);
+        JButton tenantsListBtn = AdminPage.getTenantsListBtn();
+        tenantsListBtn.setEnabled(true);
+        JButton unitsListBtn = AdminPage.getUnitsListBtn();
+        unitsListBtn.setEnabled(true);
+        JButton pendingBtn = AdminPage.getPendingBtn();
+        pendingBtn.setEnabled(true);
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
   

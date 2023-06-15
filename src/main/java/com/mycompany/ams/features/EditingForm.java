@@ -354,7 +354,6 @@ public class EditingForm extends javax.swing.JFrame {
         try {
             reader = new BufferedReader(new FileReader("TenantsDB.txt"));
             String line;
-            int ctr = 0;
             while((line = reader.readLine()) != null) {
                 String[] data = line.split("/");
                 
@@ -362,15 +361,12 @@ public class EditingForm extends javax.swing.JFrame {
             }
             reader.close();
         }catch(IOException e) {
-            e.printStackTrace();
         }
         
         Node currentNode = linkedList.head;
-        
         while((currentNode != null) && !(currentNode.getIdNo().equals(selectedTenantIdNo))) {
             currentNode = currentNode.next;
         }
-        
         clientFullName.setText(currentNode.getFullname());
         clientContact.setText(currentNode.getContactNo());
         clientEmail.setText(currentNode.getEmail());

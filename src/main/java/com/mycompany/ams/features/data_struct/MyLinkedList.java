@@ -19,15 +19,24 @@ public class MyLinkedList {
     public void add(String idNo, String fullname, String contactNo, String email, int balance, int securityDeposit, int floorNo, int unitNo) {
         Node newNode = new Node(idNo, fullname, contactNo, email, balance, securityDeposit, floorNo, unitNo);
         
-        if(head == null) {
+//        if(head == null) {
+//            head = newNode;
+//        }else {
+//            Node currentNode = head;
+//            while(currentNode.next != null) {
+//                currentNode.next = newNode;
+//            }
+//            currentNode.next = newNode;
+//        }
+        
+        
+        if (head == null) {
             head = newNode;
-        }else {
-            Node currentNode = head;
-            while(currentNode.next != null) {
-                currentNode.next = newNode;
-            }
-            currentNode.next = newNode;
+        } else {
+            newNode.next = head;
+            head = newNode;
         }
+
     }
     
     

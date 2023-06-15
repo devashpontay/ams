@@ -4,6 +4,7 @@
  */
 package com.mycompany.ams.features;
 
+import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
@@ -181,8 +182,13 @@ public class AdminLogin extends javax.swing.JFrame {
             boolean accountExists = checkAccount(username, password);
 
             if (accountExists) {
-                AdminPage adminpg = new AdminPage();
-                adminpg.show();
+                Frame[] landingPages = LandingPage.getFrames();
+                for(Frame landingPage : landingPages) {
+                    landingPage.dispose();
+                }
+                
+                AdminPage adminPage = new AdminPage();
+                adminPage.show();
                 dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "Wrong username or password!");
@@ -214,6 +220,7 @@ public class AdminLogin extends javax.swing.JFrame {
                     }
                 }
             }
+            fileReader.close();
         } catch (IOException e) {
         }
 

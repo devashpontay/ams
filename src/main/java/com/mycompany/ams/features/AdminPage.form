@@ -35,13 +35,13 @@
                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jButton1" min="-2" pref="160" max="-2" attributes="0"/>
+                          <Component id="addTenantBtn" min="-2" pref="160" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                          <Component id="displayTenantsBtn" min="-2" pref="160" max="-2" attributes="0"/>
+                          <Component id="tenantsListBtn" min="-2" pref="160" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                          <Component id="jButton3" min="-2" pref="160" max="-2" attributes="0"/>
+                          <Component id="unitsListBtn" min="-2" pref="160" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                          <Component id="jButton4" min="-2" pref="160" max="-2" attributes="0"/>
+                          <Component id="pendingBtn" min="-2" pref="160" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="113" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
@@ -117,10 +117,10 @@
               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton1" alignment="3" min="-2" pref="93" max="-2" attributes="0"/>
-                  <Component id="displayTenantsBtn" alignment="3" min="-2" pref="93" max="-2" attributes="0"/>
-                  <Component id="jButton3" alignment="3" min="-2" pref="93" max="-2" attributes="0"/>
-                  <Component id="jButton4" alignment="3" min="-2" pref="95" max="-2" attributes="0"/>
+                  <Component id="addTenantBtn" alignment="3" min="-2" pref="93" max="-2" attributes="0"/>
+                  <Component id="tenantsListBtn" alignment="3" min="-2" pref="93" max="-2" attributes="0"/>
+                  <Component id="unitsListBtn" alignment="3" min="-2" pref="93" max="-2" attributes="0"/>
+                  <Component id="pendingBtn" alignment="3" min="-2" pref="95" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="110" max="-2" attributes="0"/>
           </Group>
@@ -130,7 +130,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="addTenantBtn">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="dc" green="dc" red="ef" type="rgb"/>
@@ -143,8 +143,14 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Add Tenant"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addTenantBtnActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+      </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="displayTenantsBtn">
+    <Component class="javax.swing.JButton" name="tenantsListBtn">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="dc" green="dc" red="ef" type="rgb"/>
@@ -158,10 +164,13 @@
         <Property name="text" type="java.lang.String" value="Display List"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="displayTenantsBtnActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tenantsListBtnActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+      </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton3">
+    <Component class="javax.swing.JButton" name="unitsListBtn">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="dc" green="dc" red="ef" type="rgb"/>
@@ -174,8 +183,11 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Display Units"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+      </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton4">
+    <Component class="javax.swing.JButton" name="pendingBtn">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="dc" green="dc" red="ef" type="rgb"/>
@@ -188,6 +200,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Pending Transact"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>

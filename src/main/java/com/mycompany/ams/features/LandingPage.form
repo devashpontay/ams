@@ -115,7 +115,7 @@
                   </Group>
                   <Component id="centerImg" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="45" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -124,7 +124,7 @@
     <Component class="javax.swing.JLabel" name="logo">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Ashley Pontay\Desktop\ams\src\main\java\resources\logo.png"/>
+          <Image iconType="2" name="D:\Nelson\Programming\Programming Language\ams\src\main\java\resources\logo.png"/>
         </Property>
       </Properties>
     </Component>
@@ -193,7 +193,7 @@
     <Component class="javax.swing.JLabel" name="centerImg">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Ashley Pontay\Desktop\ams\src\main\java\resources\center-image.png"/>
+          <Image iconType="2" name="D:\Nelson\Programming\Programming Language\ams\src\main\java\resources\center-image.png"/>
         </Property>
       </Properties>
     </Component>

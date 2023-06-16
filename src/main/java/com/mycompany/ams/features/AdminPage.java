@@ -4,6 +4,7 @@
  */
 package com.mycompany.ams.features;
 
+import com.mycompany.ams.features.PathFinder.GetFilePath;
 import javax.swing.JButton;
 
 /**
@@ -18,7 +19,32 @@ public class AdminPage extends javax.swing.JFrame {
     public AdminPage() {
         initComponents();
     }
+    
+//    private Icon getpath(String fileName ){
+//      String projectDirectory = System.getProperty("user.dir");
+//        String filePath = projectDirectory + File.separator + "src" + File.separator + "main"+ File.separator + "java"+ File.separator + "com" + File.separator + "mycompany"+ File.separator + "ams" + File.separator + "resources" + File.separator + fileName + ".png";
+//        ImageIcon finalIcon = new ImageIcon();
+//        File file = new File(filePath);
+//        if (file.exists()) {
+//            try {
+//                URL iconURL = file.toURI().toURL();
+//                ImageIcon icon = new ImageIcon(iconURL);
+//
+//                finalIcon = icon;
+//
+//                // Add the label to your GUI or perform any other necessary operations
+//            } catch (MalformedURLException e) {
+//                e.printStackTrace();
+//            }
+//        } else {
+//            System.out.println("File does not exist.");
+//        }
+//       return finalIcon;
+//    }
 
+    
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,7 +54,7 @@ public class AdminPage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        systemLogo = new javax.swing.JLabel();
         addTenantBtn = new javax.swing.JButton();
         tenantsListBtn = new javax.swing.JButton();
         unitsListBtn = new javax.swing.JButton();
@@ -37,7 +63,7 @@ public class AdminPage extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        adminPageMainImg = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -47,11 +73,11 @@ public class AdminPage extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
+        smallLogoImg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Nelson\\Programming\\Programming Language\\ams\\src\\main\\java\\resources\\logo.png")); // NOI18N
+        systemLogo.setIcon(GetFilePath.getFilePath("logo"));
 
         addTenantBtn.setBackground(new java.awt.Color(239, 220, 220));
         addTenantBtn.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
@@ -97,7 +123,7 @@ public class AdminPage extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel5.setText("Admin!");
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("D:\\Nelson\\Programming\\Programming Language\\ams\\src\\main\\java\\resources\\system-admin.png")); // NOI18N
+        adminPageMainImg.setIcon(GetFilePath.getFilePath("system-admin"));
 
         jLabel7.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel7.setText("Notification for Admin:");
@@ -126,9 +152,9 @@ public class AdminPage extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel15.setText("management.");
 
-        jLabel16.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jLabel16.setIcon(new javax.swing.ImageIcon("D:\\Nelson\\Programming\\Programming Language\\ams\\src\\main\\java\\resources\\small-admin-logo.png")); // NOI18N
-        jLabel16.setText("Admin Account");
+        smallLogoImg.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        smallLogoImg.setIcon(GetFilePath.getFilePath("small-admin-logo"));
+        smallLogoImg.setText("Admin Account");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -136,9 +162,9 @@ public class AdminPage extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(44, 44, 44)
-                .addComponent(jLabel1)
+                .addComponent(systemLogo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel16)
+                .addComponent(smallLogoImg)
                 .addGap(58, 58, 58))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(88, Short.MAX_VALUE)
@@ -167,7 +193,7 @@ public class AdminPage extends javax.swing.JFrame {
                                     .addComponent(jLabel14)
                                     .addComponent(jLabel15))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel6)
+                                .addComponent(adminPageMainImg)
                                 .addGap(47, 47, 47))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel4)
@@ -182,8 +208,8 @@ public class AdminPage extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel16))
+                    .addComponent(systemLogo)
+                    .addComponent(smallLogoImg))
                 .addGap(16, 16, 16)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -193,7 +219,7 @@ public class AdminPage extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(4, 4, 4)
-                        .addComponent(jLabel6))
+                        .addComponent(adminPageMainImg))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jLabel7)
@@ -235,6 +261,8 @@ public class AdminPage extends javax.swing.JFrame {
         tenantsListBtn.setEnabled(false);
         unitsListBtn.setEnabled(false);
         pendingBtn.setEnabled(false);
+
+         
     }//GEN-LAST:event_tenantsListBtnActionPerformed
 
     private void addTenantBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTenantBtnActionPerformed
@@ -303,23 +331,23 @@ public class AdminPage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private static javax.swing.JButton addTenantBtn;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel adminPageMainImg;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private static javax.swing.JButton pendingBtn;
+    private javax.swing.JLabel smallLogoImg;
+    private javax.swing.JLabel systemLogo;
     private static javax.swing.JButton tenantsListBtn;
     private static javax.swing.JButton unitsListBtn;
     // End of variables declaration//GEN-END:variables

@@ -4,6 +4,8 @@
  */
 package com.mycompany.ams.features;
 
+import com.mycompany.ams.features.PathFinder.GetFilePath;
+
 /**
  *
  * @author finns
@@ -42,7 +44,7 @@ public class LandingPage extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(244, 245, 244));
 
-        logo.setIcon(new javax.swing.ImageIcon("D:\\Nelson\\Programming\\Programming Language\\ams\\src\\main\\java\\resources\\logo.png")); // NOI18N
+        logo.setIcon(GetFilePath.getFilePath("logo"));
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 48)); // NOI18N
         jLabel1.setText("Discover your");
@@ -75,7 +77,7 @@ public class LandingPage extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jLabel8.setText("you've been dreaming of.");
 
-        centerImg.setIcon(new javax.swing.ImageIcon("D:\\Nelson\\Programming\\Programming Language\\ams\\src\\main\\java\\resources\\center-image.png")); // NOI18N
+        centerImg.setIcon(GetFilePath.getFilePath("center-image"));
 
         jButton1.setBackground(new java.awt.Color(244, 245, 244));
         jButton1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
@@ -184,7 +186,7 @@ public class LandingPage extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jButton3))
                     .addComponent(centerImg))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(173, Short.MAX_VALUE))
         );
 
         pack();

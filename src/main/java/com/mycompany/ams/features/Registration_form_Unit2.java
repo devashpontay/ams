@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.ams.features;
-
+import com.mycompany.ams.features.PathFinder.GetFilePath;
 /**
  *
  * @author finns
@@ -56,57 +56,17 @@ public class Registration_form_Unit2 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Nelson\\Programming\\Programming Language\\ams\\src\\main\\java\\com\\mycompany\\ams\\resources\\logo.png")); // NOI18N
+        jLabel1.setIcon(GetFilePath.getFilePath("logo"));
 
-        jLabel2.setIcon(new javax.swing.JLabel() {
-            public javax.swing.Icon getIcon() {
-                try {
-                    return new javax.swing.ImageIcon(
-                        new java.net.URL("file:/D:/Nelson/Programming/Programming%20Language/ams/src/main/java/com/mycompany/ams/resources/checkout-apartment-two.png")
-                    );
-                } catch (java.net.MalformedURLException e) {
-                }
-                return null;
-            }
-        }.getIcon());
+        jLabel2.setIcon(GetFilePath.getFilePath("checkout-apartment-two"));
 
-        jLabel3.setIcon(new javax.swing.JLabel() {
-            public javax.swing.Icon getIcon() {
-                try {
-                    return new javax.swing.ImageIcon(
-                        new java.net.URL("file:/D:/Nelson/Programming/Programming%20Language/ams/src/main/java/com/mycompany/ams/resources/checkout-apartment-two-sub-1.png")
-                    );
-                } catch (java.net.MalformedURLException e) {
-                }
-                return null;
-            }
-        }.getIcon());
+        jLabel3.setIcon(GetFilePath.getFilePath("checkout-apartment-two-sub-1"));
 
-        jLabel4.setIcon(new javax.swing.JLabel() {
-            public javax.swing.Icon getIcon() {
-                try {
-                    return new javax.swing.ImageIcon(
-                        new java.net.URL("file:/D:/Nelson/Programming/Programming%20Language/ams/src/main/java/com/mycompany/ams/resources/checkout-apartment-two-sub-2.png")
-                    );
-                } catch (java.net.MalformedURLException e) {
-                }
-                return null;
-            }
-        }.getIcon());
+        jLabel4.setIcon(GetFilePath.getFilePath("checkout-apartment-two-sub-2"));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("D:\\Nelson\\Programming\\Programming Language\\ams\\src\\main\\java\\com\\mycompany\\ams\\resources\\checkout-apartment-two-sub-3.png")); // NOI18N
+        jLabel5.setIcon(GetFilePath.getFilePath("checkout-apartment-two-sub-3"));
 
-        jLabel6.setIcon(new javax.swing.JLabel() {
-            public javax.swing.Icon getIcon() {
-                try {
-                    return new javax.swing.ImageIcon(
-                        new java.net.URL("file:/D:/Nelson/Programming/Programming%20Language/ams/src/main/java/com/mycompany/ams/resources/checkout-apartment-two-sub-4.png")
-                    );
-                } catch (java.net.MalformedURLException e) {
-                }
-                return null;
-            }
-        }.getIcon());
+        jLabel6.setIcon(GetFilePath.getFilePath("checkout-apartment-two-sub-4"));
 
         jPanel1.setBackground(new java.awt.Color(239, 220, 220));
         jPanel1.setForeground(new java.awt.Color(36, 37, 35));
@@ -128,17 +88,7 @@ public class Registration_form_Unit2 extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(36, 37, 35));
         jLabel10.setText("P11,000");
 
-        jLabel11.setIcon(new javax.swing.JLabel() {
-            public javax.swing.Icon getIcon() {
-                try {
-                    return new javax.swing.ImageIcon(
-                        new java.net.URL("file:/D:/Nelson/Programming/Programming%20Language/ams/src/main/java/com/mycompany/ams/resources/checkout-rating-2.png")
-                    );
-                } catch (java.net.MalformedURLException e) {
-                }
-                return null;
-            }
-        }.getIcon());
+        jLabel11.setIcon(new javax.swing.ImageIcon("D:\\Nelson\\Programming\\Programming Language\\ams\\src\\main\\java\\com\\mycompany\\ams\\resources\\checkout-rating-2.png")); // NOI18N
 
         jLabel12.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(208, 49, 49));
@@ -332,7 +282,7 @@ public class Registration_form_Unit2 extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(jLabel6))
                         .addComponent(jLabel2)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 39, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(

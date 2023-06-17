@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.ams.features;
+import com.mycompany.ams.features.PathFinder.GetFilePath;
 
 /**
  *
@@ -56,67 +57,17 @@ public class Registration_form_Unit3 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Nelson\\Programming\\Programming Language\\ams\\src\\main\\java\\com\\mycompany\\ams\\resources\\logo.png")); // NOI18N
+        jLabel1.setIcon(GetFilePath.getFilePath("logo"));
 
-        jLabel2.setIcon(new javax.swing.JLabel() {
-            public javax.swing.Icon getIcon() {
-                try {
-                    return new javax.swing.ImageIcon(
-                        new java.net.URL("file:/D:/Nelson/Programming/Programming%20Language/ams/src/main/java/com/mycompany/ams/resources/checkout-apartment-three.png")
-                    );
-                } catch (java.net.MalformedURLException e) {
-                }
-                return null;
-            }
-        }.getIcon());
+        jLabel2.setIcon(GetFilePath.getFilePath("checkout-apartment-three"));
 
-        jLabel3.setIcon(new javax.swing.JLabel() {
-            public javax.swing.Icon getIcon() {
-                try {
-                    return new javax.swing.ImageIcon(
-                        new java.net.URL("file:/D:/Nelson/Programming/Programming%20Language/ams/src/main/java/com/mycompany/ams/resources/checkout-apartment-three-sub-1.png")
-                    );
-                } catch (java.net.MalformedURLException e) {
-                }
-                return null;
-            }
-        }.getIcon());
+        jLabel3.setIcon(GetFilePath.getFilePath("checkout-apartment-three-sub-1"));
 
-        jLabel4.setIcon(new javax.swing.JLabel() {
-            public javax.swing.Icon getIcon() {
-                try {
-                    return new javax.swing.ImageIcon(
-                        new java.net.URL("file:/D:/Nelson/Programming/Programming%20Language/ams/src/main/java/com/mycompany/ams/resources/checkout-apartment-three-sub-2.png")
-                    );
-                } catch (java.net.MalformedURLException e) {
-                }
-                return null;
-            }
-        }.getIcon());
+        jLabel4.setIcon(GetFilePath.getFilePath("checkout-apartment-three-sub-2"));
 
-        jLabel5.setIcon(new javax.swing.JLabel() {
-            public javax.swing.Icon getIcon() {
-                try {
-                    return new javax.swing.ImageIcon(
-                        new java.net.URL("file:/D:/Nelson/Programming/Programming%20Language/ams/src/main/java/com/mycompany/ams/resources/checkout-apartment-three-sub-3.png")
-                    );
-                } catch (java.net.MalformedURLException e) {
-                }
-                return null;
-            }
-        }.getIcon());
+        jLabel5.setIcon(GetFilePath.getFilePath("checkout-apartment-three-sub-3"));
 
-        jLabel6.setIcon(new javax.swing.JLabel() {
-            public javax.swing.Icon getIcon() {
-                try {
-                    return new javax.swing.ImageIcon(
-                        new java.net.URL("file:/D:/Nelson/Programming/Programming%20Language/ams/src/main/java/com/mycompany/ams/resources/checkout-apartment-three-sub-4.png")
-                    );
-                } catch (java.net.MalformedURLException e) {
-                }
-                return null;
-            }
-        }.getIcon());
+        jLabel6.setIcon(GetFilePath.getFilePath("checkout-apartment-three-sub-4"));
 
         jPanel1.setBackground(new java.awt.Color(239, 220, 220));
         jPanel1.setForeground(new java.awt.Color(36, 37, 35));
@@ -342,7 +293,7 @@ public class Registration_form_Unit3 extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(jLabel6))
                         .addComponent(jLabel2)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(

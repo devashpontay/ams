@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.ams.features;
-
+import com.mycompany.ams.features.PathFinder.GetFilePath;
 /**
  *
  * @author finns
@@ -56,17 +56,17 @@ public class Registration_form_Unit1 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Nelson\\Programming\\Programming Language\\ams\\src\\main\\java\\com\\mycompany\\ams\\resources\\logo.png")); // NOI18N
+        jLabel1.setIcon(GetFilePath.getFilePath("logo"));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("D:\\Nelson\\Programming\\Programming Language\\ams\\src\\main\\java\\com\\mycompany\\ams\\resources\\checkout-apartment-one.png")); // NOI18N
+        jLabel2.setIcon(GetFilePath.getFilePath("checkout-apartment-one"));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("D:\\Nelson\\Programming\\Programming Language\\ams\\src\\main\\java\\com\\mycompany\\ams\\resources\\checkout-apartment-one-sub-1.png")); // NOI18N
+        jLabel3.setIcon(GetFilePath.getFilePath("checkout-apartment-one-sub-1"));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("D:\\Nelson\\Programming\\Programming Language\\ams\\src\\main\\java\\com\\mycompany\\ams\\resources\\checkout-apartment-one-sub-2.png")); // NOI18N
+        jLabel4.setIcon(GetFilePath.getFilePath("checkout-apartment-one-sub-2"));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("D:\\Nelson\\Programming\\Programming Language\\ams\\src\\main\\java\\com\\mycompany\\ams\\resources\\checkout-apartment-one-sub-3.png")); // NOI18N
+        jLabel5.setIcon(GetFilePath.getFilePath("checkout-apartment-one-sub-3"));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("D:\\Nelson\\Programming\\Programming Language\\ams\\src\\main\\java\\com\\mycompany\\ams\\resources\\checkout-apartment-one-sub-4.png")); // NOI18N
+        jLabel6.setIcon(GetFilePath.getFilePath("checkout-apartment-one-sub-4"));
 
         jPanel1.setBackground(new java.awt.Color(239, 220, 220));
         jPanel1.setForeground(new java.awt.Color(36, 37, 35));

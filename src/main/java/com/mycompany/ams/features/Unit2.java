@@ -15,6 +15,8 @@ import java.awt.event.ActionListener;
 import java.awt.AlphaComposite;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 /**
  *
@@ -68,7 +70,7 @@ public class Unit2 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Nelson\\Programming\\Programming Language\\ams\\src\\main\\java\\com\\mycompany\\ams\\resources\\logo.png")); // NOI18N
+        jLabel1.setIcon(GetFilePath.getFilePath("logo"));
 
         jButton1.setBackground(new java.awt.Color(239, 220, 220));
         jButton1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
@@ -243,7 +245,7 @@ public class Unit2 extends javax.swing.JFrame {
                                         .addComponent(jLabel10)))))
                         .addGap(18, 18, 18)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(109, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -295,6 +297,27 @@ public class Unit2 extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+
+        // Get the current window
+        JFrame currentWindow = this;
+
+        // Gray out the current window
+        currentWindow.setBackground(new Color(128, 128, 128));
+        currentWindow.setEnabled(false);
+
+        // Open the new window
+        Registration_form_Unit1 registrationForm = new Registration_form_Unit1();
+        registrationForm.setVisible(true);
+
+        // Add a listener to the new window to check if it is closed
+        registrationForm.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                // Re-enable the current window
+                currentWindow.setEnabled(true);
+                currentWindow.setBackground(null);
+            }
+        });
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

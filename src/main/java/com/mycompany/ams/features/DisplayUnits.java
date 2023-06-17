@@ -4,6 +4,7 @@
  */
 package com.mycompany.ams.features;
 import com.mycompany.ams.features.PathFinder.GetFilePath;
+import javax.swing.JFrame;
 
 /**
  *
@@ -119,6 +120,11 @@ public class DisplayUnits extends javax.swing.JFrame {
         jButton3.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jButton3.setForeground(new java.awt.Color(208, 49, 49));
         jButton3.setText("View more");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(194, 390, -1, 31));
 
         jLabel5.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
@@ -150,6 +156,11 @@ public class DisplayUnits extends javax.swing.JFrame {
         jButton4.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jButton4.setForeground(new java.awt.Color(208, 49, 49));
         jButton4.setText("View more");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 390, -1, 30));
 
         jLabel7.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
@@ -229,8 +240,40 @@ public class DisplayUnits extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+        // Get the current window
+        JFrame currentWindow = this;
+
+        // Close the current window
+        currentWindow.dispose();
+
+        // Open the new window
+        Unit1 unit1 = new Unit1();
+        unit1.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // Get the current window
+        JFrame currentWindow = this;
+
+        // Close the current window
+        currentWindow.dispose();
+
+        // Open the new window
+        Unit2 unit2 = new Unit2();
+        unit2.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // Get the current window
+        JFrame currentWindow = this;
+
+        // Close the current window
+        currentWindow.dispose();
+
+        // Open the new window
+        Unit3 unit3 = new Unit3();
+        unit3.setVisible(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments

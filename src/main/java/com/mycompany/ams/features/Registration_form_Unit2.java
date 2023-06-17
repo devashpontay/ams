@@ -11,6 +11,10 @@ import java.util.UUID;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import java.awt.Color;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import javax.swing.JTextField;
 /**
  *
  * @author finns
@@ -22,6 +26,34 @@ public class Registration_form_Unit2 extends javax.swing.JFrame {
      */
     public Registration_form_Unit2() {
         initComponents();
+        setPlaceholders();
+    }
+    
+    private void setPlaceholders() {
+        setPlaceholder(name, "Full Name");
+        setPlaceholder(contact, "Contact Number");
+        setPlaceholder(textEmail, "Email Address");
+    }
+    
+    private void setPlaceholder(JTextField textField, String placeholder) {
+        textField.setForeground(Color.GRAY);
+        textField.setText(placeholder);
+        textField.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if (textField.getText().equals(placeholder)) {
+                    textField.setText("");
+                    textField.setForeground(Color.BLACK);
+                }
+            }
+            @Override
+            public void focusLost(FocusEvent e) {
+                if (textField.getText().isEmpty()) {
+                    textField.setForeground(Color.GRAY);
+                    textField.setText(placeholder);
+                }
+            }
+        });
     }
 
     /**
@@ -330,7 +362,7 @@ public class Registration_form_Unit2 extends javax.swing.JFrame {
         String securityDeposit = "22000";
 
         try {
-            FileWriter fileWriter = new FileWriter("TenantsDB.txt", true);
+            FileWriter fileWriter = new FileWriter("PendingTransDB.txt", true);
             BufferedWriter writer = new BufferedWriter(fileWriter);
 
             // Append the tenant details to the file

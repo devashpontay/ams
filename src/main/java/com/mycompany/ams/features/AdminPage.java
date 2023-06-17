@@ -117,6 +117,11 @@ public class AdminPage extends javax.swing.JFrame {
         pendingBtn.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         pendingBtn.setForeground(new java.awt.Color(208, 49, 49));
         pendingBtn.setText("Pending Transact");
+        pendingBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pendingBtnActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 60)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(208, 49, 49));
@@ -305,6 +310,31 @@ public class AdminPage extends javax.swing.JFrame {
         displayUnits.show();
         dispose();
     }//GEN-LAST:event_unitsListBtnActionPerformed
+
+    private void pendingBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pendingBtnActionPerformed
+        JFrame currentWindow = this;
+
+        // Gray out the current window
+        currentWindow.setBackground(new Color(128, 128, 128));
+        currentWindow.setEnabled(false);
+
+        // Open the new window
+        PendingTransaction pendingTransaction = new PendingTransaction();
+        pendingTransaction.setVisible(true);
+
+        // Add a listener to the new window to check if it is closed
+        pendingTransaction.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                // Re-enable the current window
+                currentWindow.setEnabled(true);
+                currentWindow.setBackground(null);
+
+                // Set the current window as the default
+                pendingTransaction.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            }
+        });
+    }//GEN-LAST:event_pendingBtnActionPerformed
 
     /**
      * @param args the command line arguments

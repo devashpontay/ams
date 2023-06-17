@@ -3,15 +3,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.ams.features;
+
 import com.mycompany.ams.features.PathFinder.GetFilePath;
+import com.mycompany.ams.features.RoomDisabler.RoomChecker;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.UUID;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JFrame;
+import java.awt.Color;
+import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
+import java.util.ArrayList;
+import javax.swing.JTextField;
+
 /**
  *
  * @author finns
@@ -23,6 +29,46 @@ public class Registration_form_Unit1 extends javax.swing.JFrame {
      */
     public Registration_form_Unit1() {
         initComponents();
+        setPlaceholders();
+        initComboBox();
+    }
+
+    private void initComboBox() {
+        RoomChecker roomChecker = new RoomChecker();
+        ArrayList<String> occupiedRoom = roomChecker.getOccupiedRoomFloorOne();
+
+        for(int i = 1; i <= 10; i++) {
+            if(roomNum.getItemAt(i-1).equals(occupiedRoom.get(i)))
+        }
+
+    }
+
+    private void setPlaceholders() {
+        setPlaceholder(name, "Full Name");
+        setPlaceholder(contact, "Contact Number");
+        setPlaceholder(textEmail, "Email Address");
+    }
+
+    private void setPlaceholder(JTextField textField, String placeholder) {
+        textField.setForeground(Color.GRAY);
+        textField.setText(placeholder);
+        textField.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if (textField.getText().equals(placeholder)) {
+                    textField.setText("");
+                    textField.setForeground(Color.BLACK);
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if (textField.getText().isEmpty()) {
+                    textField.setForeground(Color.GRAY);
+                    textField.setText(placeholder);
+                }
+            }
+        });
     }
 
     /**
@@ -96,8 +142,6 @@ public class Registration_form_Unit1 extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(36, 37, 35));
         jLabel10.setText("P8,000");
 
-        jLabel11.setIcon(new javax.swing.ImageIcon("D:\\Nelson\\Programming\\Programming Language\\ams\\src\\main\\java\\com\\mycompany\\ams\\resources\\checkout-rating-1.png")); // NOI18N
-
         jLabel12.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(208, 49, 49));
         jLabel12.setText("Request to Rent");
@@ -160,7 +204,7 @@ public class Registration_form_Unit1 extends javax.swing.JFrame {
 
         roomNum.setBackground(new java.awt.Color(232, 232, 233));
         roomNum.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        roomNum.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "101", "102", "103", "104", "105", "106", "107", "108", "109", "110" }));
+        roomNum.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
         roomNum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 roomNumActionPerformed(evt);
@@ -332,7 +376,7 @@ public class Registration_form_Unit1 extends javax.swing.JFrame {
 
     public void saveTenantInfo() {
         UUID uuid = UUID.randomUUID();
-        
+
         String randomIdNo = uuid.toString();
         String fullName = name.getText();
         String contactNumber = contact.getText();
@@ -341,7 +385,7 @@ public class Registration_form_Unit1 extends javax.swing.JFrame {
         String securityDeposit = "16000";
 
         try {
-            FileWriter fileWriter = new FileWriter("TenantsDB.txt", true);
+            FileWriter fileWriter = new FileWriter("PendingTransDB.txt", true);
             BufferedWriter writer = new BufferedWriter(fileWriter);
 
             // Append the tenant details to the file
@@ -354,13 +398,13 @@ public class Registration_form_Unit1 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Your request is successfully submitted!");
 
             // Clear the input fields after saving
-            
         } catch (IOException e) {
             // Handle any exceptions that occur during file writing
             JOptionPane.showMessageDialog(null, "Your request failed to save details!");
         }
+
     }
-    
+
     private void textEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textEmailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_textEmailActionPerformed
@@ -388,6 +432,7 @@ public class Registration_form_Unit1 extends javax.swing.JFrame {
 
     private void roomNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roomNumActionPerformed
         // TODO add your handling code here:
+
     }//GEN-LAST:event_roomNumActionPerformed
 
     /**

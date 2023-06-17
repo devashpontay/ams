@@ -141,7 +141,7 @@ public class Unit1 extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setIcon(new javax.swing.ImageIcon("D:\\Nelson\\Programming\\Programming Language\\ams\\src\\main\\java\\com\\mycompany\\ams\\resources\\dial-icon.png")); // NOI18N
+        jButton3.setIcon(GetFilePath.getFilePath("dial-icon"));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);

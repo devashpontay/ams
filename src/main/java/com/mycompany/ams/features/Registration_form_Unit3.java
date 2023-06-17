@@ -4,6 +4,12 @@
  */
 package com.mycompany.ams.features;
 import com.mycompany.ams.features.PathFinder.GetFilePath;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.UUID;
+import javax.swing.JOptionPane;
+import javax.swing.JFrame;
 
 /**
  *
@@ -40,18 +46,18 @@ public class Registration_form_Unit3 extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        name = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        textEmail = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        contact = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        roomNum = new javax.swing.JComboBox<>();
         jLabel21 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
@@ -89,25 +95,15 @@ public class Registration_form_Unit3 extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(36, 37, 35));
         jLabel10.setText("P15,000");
 
-        jLabel11.setIcon(new javax.swing.JLabel() {
-            public javax.swing.Icon getIcon() {
-                try {
-                    return new javax.swing.ImageIcon(
-                        new java.net.URL("file:/D:/Nelson/Programming/Programming%20Language/ams/src/main/java/com/mycompany/ams/resources/checkout-rating-3.png")
-                    );
-                } catch (java.net.MalformedURLException e) {
-                }
-                return null;
-            }
-        }.getIcon());
+        jLabel11.setIcon(new javax.swing.ImageIcon("D:\\Nelson\\Programming\\Programming Language\\ams\\src\\main\\java\\com\\mycompany\\ams\\resources\\checkout-rating-3.png")); // NOI18N
 
         jLabel12.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(208, 49, 49));
         jLabel12.setText("Request to Rent");
 
-        jTextField1.setBackground(new java.awt.Color(232, 232, 233));
-        jTextField1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(36, 37, 35));
+        name.setBackground(new java.awt.Color(232, 232, 233));
+        name.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        name.setForeground(new java.awt.Color(36, 37, 35));
 
         jLabel13.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(36, 37, 35));
@@ -130,12 +126,12 @@ public class Registration_form_Unit3 extends javax.swing.JFrame {
         jLabel18.setForeground(new java.awt.Color(36, 37, 35));
         jLabel18.setText("Email");
 
-        jTextField2.setBackground(new java.awt.Color(232, 232, 233));
-        jTextField2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(36, 37, 35));
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        textEmail.setBackground(new java.awt.Color(232, 232, 233));
+        textEmail.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        textEmail.setForeground(new java.awt.Color(36, 37, 35));
+        textEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                textEmailActionPerformed(evt);
             }
         });
 
@@ -143,12 +139,12 @@ public class Registration_form_Unit3 extends javax.swing.JFrame {
         jLabel19.setForeground(new java.awt.Color(36, 37, 35));
         jLabel19.setText("Contact No.");
 
-        jTextField3.setBackground(new java.awt.Color(232, 232, 233));
-        jTextField3.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(36, 37, 35));
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        contact.setBackground(new java.awt.Color(232, 232, 233));
+        contact.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        contact.setForeground(new java.awt.Color(36, 37, 35));
+        contact.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                contactActionPerformed(evt);
             }
         });
 
@@ -156,9 +152,9 @@ public class Registration_form_Unit3 extends javax.swing.JFrame {
         jLabel20.setForeground(new java.awt.Color(36, 37, 35));
         jLabel20.setText("Room No.");
 
-        jComboBox1.setBackground(new java.awt.Color(232, 232, 233));
-        jComboBox1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Room 21", "Room 22", "Room 23", "Room 24", "Room 25", "Room 26", "Room 27", "Room 28", "Room 29", "Room 30" }));
+        roomNum.setBackground(new java.awt.Color(232, 232, 233));
+        roomNum.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        roomNum.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "301", "302", "303", "304", "305", "306", "307", "308", "309", "310" }));
 
         jLabel21.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(36, 37, 35));
@@ -215,13 +211,13 @@ public class Registration_form_Unit3 extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel13)
                                     .addGap(331, 331, 331))
-                                .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(name, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(textEmail, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(contact, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(roomNum, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addComponent(jLabel17)
                                     .addGap(8, 8, 8))))))
@@ -253,19 +249,19 @@ public class Registration_form_Unit3 extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel18)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(textEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
                     .addComponent(jLabel20))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jComboBox1)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(roomNum)
+                    .addComponent(contact, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel21)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -323,18 +319,58 @@ public class Registration_form_Unit3 extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    public void saveTenantInfo() {
+        UUID uuid = UUID.randomUUID();
+        
+        String randomIdNo = uuid.toString();
+        String fullName = name.getText();
+        String contactNumber = contact.getText();
+        String email = textEmail.getText();
+        String accountBalance = "0";
+        String securityDeposit = "30000";
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        try {
+            FileWriter fileWriter = new FileWriter("TenantsDB.txt", true);
+            BufferedWriter writer = new BufferedWriter(fileWriter);
+
+            // Append the tenant details to the file
+            writer.write(randomIdNo + "/" + fullName + "/" + contactNumber + "/" + email + "/" + accountBalance + "/" + securityDeposit + "/" + 3 + "/" + roomNum.getSelectedItem() + "\n");
+
+            // Close the buffered writer
+            writer.close();
+
+            // Display a success message
+            JOptionPane.showMessageDialog(null, "Your request is successfully submitted!");
+
+            // Clear the input fields after saving
+            
+        } catch (IOException e) {
+            // Handle any exceptions that occur during file writing
+            JOptionPane.showMessageDialog(null, "Your request failed to save details!");
+        }
+    }
+    
+    private void textEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textEmailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_textEmailActionPerformed
+
+    private void contactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_contactActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        saveTenantInfo();
 
+        // Get the current window
+        JFrame currentWindow = this;
+
+        // Set the current window as the default
+        currentWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        // Back to the past window
+        currentWindow.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+   
     /**
      * @param args the command line arguments
      */
@@ -371,8 +407,8 @@ public class Registration_form_Unit3 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField contact;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -395,8 +431,8 @@ public class Registration_form_Unit3 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField name;
+    private javax.swing.JComboBox<String> roomNum;
+    private javax.swing.JTextField textEmail;
     // End of variables declaration//GEN-END:variables
 }

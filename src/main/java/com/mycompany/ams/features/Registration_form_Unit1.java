@@ -8,10 +8,13 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.UUID;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JFrame;
+import java.awt.Color;
+import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
+import javax.swing.JTextField;
+
 /**
  *
  * @author finns
@@ -21,10 +24,38 @@ public class Registration_form_Unit1 extends javax.swing.JFrame {
     /**
      * Creates new form Registration_form_Unit1
      */
+    
     public Registration_form_Unit1() {
         initComponents();
+        setPlaceholders();
     }
-
+    
+    private void setPlaceholders() {
+        setPlaceholder(name, "Full Name");
+        setPlaceholder(contact, "Contact Number");
+        setPlaceholder(textEmail, "Email Address");
+    }
+    
+    private void setPlaceholder(JTextField textField, String placeholder) {
+        textField.setForeground(Color.GRAY);
+        textField.setText(placeholder);
+        textField.addFocusListener(new FocusAdapter() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if (textField.getText().equals(placeholder)) {
+                    textField.setText("");
+                    textField.setForeground(Color.BLACK);
+                }
+            }
+            @Override
+            public void focusLost(FocusEvent e) {
+                if (textField.getText().isEmpty()) {
+                    textField.setForeground(Color.GRAY);
+                    textField.setText(placeholder);
+                }
+            }
+        });
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -359,6 +390,7 @@ public class Registration_form_Unit1 extends javax.swing.JFrame {
             // Handle any exceptions that occur during file writing
             JOptionPane.showMessageDialog(null, "Your request failed to save details!");
         }
+        
     }
     
     private void textEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textEmailActionPerformed
@@ -388,6 +420,7 @@ public class Registration_form_Unit1 extends javax.swing.JFrame {
 
     private void roomNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roomNumActionPerformed
         // TODO add your handling code here:
+       
     }//GEN-LAST:event_roomNumActionPerformed
 
     /**

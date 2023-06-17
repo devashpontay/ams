@@ -11,6 +11,7 @@ com\mycompany\ams\features\LandingPage$1.class
 com\mycompany\ams\features\Unit3$3.class
 com\mycompany\ams\features\EditingForm$8.class
 com\mycompany\ams\features\Unit2$5.class
+com\mycompany\ams\features\Registration_form_Unit1$5.class
 com\mycompany\ams\features\AddTenant$6.class
 com\mycompany\ams\features\AdminLogin$2.class
 com\mycompany\ams\features\AdminLogin.class
@@ -24,8 +25,10 @@ com\mycompany\ams\features\AdminLogin$LoginButtonListener.class
 com\mycompany\ams\features\LandingPage$3.class
 com\mycompany\ams\features\RegistrationForm$9.class
 com\mycompany\ams\features\Registration_form_Unit3$3.class
+com\mycompany\ams\features\Registration_form_Unit2$5.class
 com\mycompany\ams\features\Unit2$6.class
 com\mycompany\ams\features\data_struct\MyLinkedList.class
+com\mycompany\ams\features\Registration_form_Unit1$7.class
 com\mycompany\ams\features\DisplayUnits.class
 com\mycompany\ams\features\RegistrationForm$2.class
 com\mycompany\ams\features\AdminPage$3.class
@@ -61,6 +64,7 @@ com\mycompany\ams\features\AdminLogin$4.class
 com\mycompany\ams\Ams.class
 com\mycompany\ams\features\Unit2$7.class
 com\mycompany\ams\features\Registration_form_Unit2$4.class
+com\mycompany\ams\features\Registration_form_Unit1$6.class
 com\mycompany\ams\features\EditingForm$4.class
 com\mycompany\ams\features\RegistrationForm$1.class
 com\mycompany\ams\features\Registration_form_Unit3$2.class

@@ -3,7 +3,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.ams.features;
-
+import com.mycompany.ams.features.PathFinder.GetFilePath;
+import javax.swing.JOptionPane;
+import java.awt.Font;
+import java.awt.Color;
+import javax.swing.JLabel;
+import javax.swing.JFrame;
+import javax.swing.Timer;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.AlphaComposite;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 /**
  *
  * @author finns
@@ -13,6 +24,10 @@ public class Unit3 extends javax.swing.JFrame {
     /**
      * Creates new form Unit3
      */
+    
+    private Timer timer;
+    private float alpha;
+    
     public Unit3() {
         initComponents();
     }
@@ -56,7 +71,7 @@ public class Unit3 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Nelson\\Programming\\Programming Language\\ams\\src\\main\\java\\com\\mycompany\\ams\\resources\\logo.png")); // NOI18N
+        jLabel1.setIcon(GetFilePath.getFilePath("logo"));
 
         jButton1.setBackground(new java.awt.Color(239, 220, 220));
         jButton1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
@@ -68,37 +83,17 @@ public class Unit3 extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setIcon(new javax.swing.JLabel() {
-            public javax.swing.Icon getIcon() {
-                try {
-                    return new javax.swing.ImageIcon(
-                        new java.net.URL("file:/D:/Nelson/Programming/Programming%20Language/ams/src/main/java/com/mycompany/ams/resources/apartment-three-main.png")
-                    );
-                } catch (java.net.MalformedURLException e) {
-                }
-                return null;
-            }
-        }.getIcon());
+        jLabel4.setIcon(GetFilePath.getFilePath("apartment-three-main"));
 
         jLabel3.setFont(new java.awt.Font("Century Gothic", 1, 48)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(37, 34, 32));
         jLabel3.setText("Sleek Noir");
 
-        jLabel5.setIcon(new javax.swing.JLabel() {
-            public javax.swing.Icon getIcon() {
-                try {
-                    return new javax.swing.ImageIcon(
-                        new java.net.URL("file:/D:/Nelson/Programming/Programming%20Language/ams/src/main/java/com/mycompany/ams/resources/apartment-three-rating.png")
-                    );
-                } catch (java.net.MalformedURLException e) {
-                }
-                return null;
-            }
-        }.getIcon());
+        jLabel5.setIcon(GetFilePath.getFilePath("apartment-three-rating"));
 
         jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(37, 34, 32));
-        jLabel6.setIcon(new javax.swing.ImageIcon("D:\\Nelson\\Programming\\Programming Language\\ams\\src\\main\\java\\com\\mycompany\\ams\\resources\\location-icon.png")); // NOI18N
+        jLabel6.setIcon(GetFilePath.getFilePath("location-icon"));
         jLabel6.setText("3rd Floor, Room 21-30, Ayala Boulevard, Manila, Metro-Manila");
 
         jLabel7.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
@@ -124,53 +119,13 @@ public class Unit3 extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel12.setText("is flexible and can be configured in several different ways, including a sofa-bed with shelving on all sides, a rounded retro-style");
 
-        jLabel13.setIcon(new javax.swing.JLabel() {
-            public javax.swing.Icon getIcon() {
-                try {
-                    return new javax.swing.ImageIcon(
-                        new java.net.URL("file:/D:/Nelson/Programming/Programming%20Language/ams/src/main/java/com/mycompany/ams/resources/apartment-three-sub-1.png")
-                    );
-                } catch (java.net.MalformedURLException e) {
-                }
-                return null;
-            }
-        }.getIcon());
+        jLabel13.setIcon(GetFilePath.getFilePath("apartment-three-sub-1"));
 
-        jLabel14.setIcon(new javax.swing.JLabel() {
-            public javax.swing.Icon getIcon() {
-                try {
-                    return new javax.swing.ImageIcon(
-                        new java.net.URL("file:/D:/Nelson/Programming/Programming%20Language/ams/src/main/java/com/mycompany/ams/resources/apartment-three-sub-2.png")
-                    );
-                } catch (java.net.MalformedURLException e) {
-                }
-                return null;
-            }
-        }.getIcon());
+        jLabel14.setIcon(GetFilePath.getFilePath("apartment-three-sub-2"));
 
-        jLabel15.setIcon(new javax.swing.JLabel() {
-            public javax.swing.Icon getIcon() {
-                try {
-                    return new javax.swing.ImageIcon(
-                        new java.net.URL("file:/D:/Nelson/Programming/Programming%20Language/ams/src/main/java/com/mycompany/ams/resources/apartment-three-sub-3.png")
-                    );
-                } catch (java.net.MalformedURLException e) {
-                }
-                return null;
-            }
-        }.getIcon());
+        jLabel15.setIcon(GetFilePath.getFilePath("apartment-three-sub-3"));
 
-        jLabel16.setIcon(new javax.swing.JLabel() {
-            public javax.swing.Icon getIcon() {
-                try {
-                    return new javax.swing.ImageIcon(
-                        new java.net.URL("file:/D:/Nelson/Programming/Programming%20Language/ams/src/main/java/com/mycompany/ams/resources/apartment-three-sub-4.png")
-                    );
-                } catch (java.net.MalformedURLException e) {
-                }
-                return null;
-            }
-        }.getIcon());
+        jLabel16.setIcon(GetFilePath.getFilePath("apartment-three-sub-4"));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -185,6 +140,11 @@ public class Unit3 extends javax.swing.JFrame {
         });
 
         jButton3.setIcon(new javax.swing.ImageIcon("D:\\Nelson\\Programming\\Programming Language\\ams\\src\\main\\java\\com\\mycompany\\ams\\resources\\dial-icon.png")); // NOI18N
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jLabel17.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel17.setText("Brief Information");
@@ -195,41 +155,11 @@ public class Unit3 extends javax.swing.JFrame {
         jLabel19.setFont(new java.awt.Font("Century Gothic", 0, 18)); // NOI18N
         jLabel19.setText("BMTP Real Estate Agency");
 
-        jLabel20.setIcon(new javax.swing.JLabel() {
-            public javax.swing.Icon getIcon() {
-                try {
-                    return new javax.swing.ImageIcon(
-                        new java.net.URL("file:/D:/Nelson/Programming/Programming%20Language/ams/src/main/java/com/mycompany/ams/resources/apartment-three-utilities.png")
-                    );
-                } catch (java.net.MalformedURLException e) {
-                }
-                return null;
-            }
-        }.getIcon());
+        jLabel20.setIcon(GetFilePath.getFilePath("apartment-three-utilities"));
 
-        jLabel21.setIcon(new javax.swing.JLabel() {
-            public javax.swing.Icon getIcon() {
-                try {
-                    return new javax.swing.ImageIcon(
-                        new java.net.URL("file:/D:/Nelson/Programming/Programming%20Language/ams/src/main/java/com/mycompany/ams/resources/apartment-three-pay-1.png")
-                    );
-                } catch (java.net.MalformedURLException e) {
-                }
-                return null;
-            }
-        }.getIcon());
+        jLabel21.setIcon(GetFilePath.getFilePath("apartment-three-pay-1"));
 
-        jLabel22.setIcon(new javax.swing.JLabel() {
-            public javax.swing.Icon getIcon() {
-                try {
-                    return new javax.swing.ImageIcon(
-                        new java.net.URL("file:/D:/Nelson/Programming/Programming%20Language/ams/src/main/java/com/mycompany/ams/resources/apartment-three-pay-2.png")
-                    );
-                } catch (java.net.MalformedURLException e) {
-                }
-                return null;
-            }
-        }.getIcon());
+        jLabel22.setIcon(GetFilePath.getFilePath("apartment-three-pay-2"));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -331,7 +261,7 @@ public class Unit3 extends javax.swing.JFrame {
                             .addComponent(jLabel23))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -379,7 +309,7 @@ public class Unit3 extends javax.swing.JFrame {
                                 .addGap(1, 1, 1)
                                 .addComponent(jLabel16))))
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         pack();
@@ -394,10 +324,93 @@ public class Unit3 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // Set font properties
+        Font fontBold12 = new Font("Century Gothic", Font.BOLD, 12);
+        Font fontPlain10 = new Font("Century Gothic", Font.PLAIN, 10);
+
+        // Set color properties
+        Color bgColor = new Color(208, 49, 49); // #D03131 or rgb(208,49,49)
+        Color fontColor = new Color(244, 245, 244); // #F4F5F4 or rgb(244,245,244)
+
+        // Create business card content
+        String title = "Contact Us";
+        String name = "BMPT Real Estate Agent";
+        String agentTitle = "Apartment Agent";
+        String phone = "+63-912-314-5688";
+        String email = "bmpt_real.estate.agent@gmail.com";
+        String address = "Ayala Boulevard, Manila, Metro-Manila, Philippines";
+
+        // Create the business card message with custom formatting
+        String message = "<html><body style='font-family: Century Gothic;'>"
+                + "<div style='background-color: " + getHexColor(bgColor) + "; padding: 8px;'>"
+                + "<div style='color: " + getHexColor(fontColor) + "; font-size: 12px; font-weight: bold;'>" + name + "</div>"
+                + "<div style='color: " + getHexColor(fontColor) + "; font-size: 10px;'>" + agentTitle + "</div>"
+                + "<br>"
+                + "<div style='color: " + getHexColor(fontColor) + "; font-size: 10px;'>" + phone + "</div>"
+                + "<div style='color: " + getHexColor(fontColor) + "; font-size: 10px;'>" + email + "</div>"
+                + "<div style='color: " + getHexColor(fontColor) + "; font-size: 10px;'>" + address + "</div>"
+                + "</div>"
+                + "</body></html>";
+
+        // Create a JFrame to host the JOptionPane
+        JFrame frame = new JFrame();
+
+        // Create the message label with initial transparency
+        JLabel label = new JLabel(message) {
+            @Override
+            public void paintComponent(Graphics g) {
+                Graphics2D g2d = (Graphics2D) g;
+                g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alpha));
+                super.paintComponent(g2d);
+            }
+        };
+
+        // Set the initial transparency to 0
+        alpha = 0f;
+
+        // Create the timer to control the animation
+        timer = new Timer(10, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Gradually increase the transparency until fully opaque
+                alpha += 0.02f;
+                if (alpha >= 1f) {
+                    alpha = 1f;
+                    timer.stop();
+                }
+                label.repaint();
+            }
+        });
+
+        // Start the timer to initiate the fade-in animation
+        timer.start();
+
+        // Display the business card in a JOptionPane with custom formatting
+        JOptionPane.showMessageDialog(frame, label, title, JOptionPane.PLAIN_MESSAGE);
+
+        // Set the fonts for the message in the JOptionPane
+        for (java.awt.Component component : frame.getContentPane().getComponents()) {
+            if (component instanceof javax.swing.JLabel) {
+                javax.swing.JLabel jlabel = (javax.swing.JLabel) component;
+                if (jlabel.getFont().getSize() == 12 && jlabel.getFont().isBold()) {
+                    jlabel.setFont(fontBold12);
+                } else if (jlabel.getFont().getSize() == 10 && !jlabel.getFont().isBold()) {
+                    jlabel.setFont(fontPlain10);
+                }
+            }
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private String getHexColor(Color color) {
+        return String.format("#%06x", color.getRGB() & 0xFFFFFF);
+    }
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        Unit3 unit3 = new Unit3();
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -420,7 +433,7 @@ public class Unit3 extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Unit3.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

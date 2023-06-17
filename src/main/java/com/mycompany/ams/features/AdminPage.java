@@ -5,7 +5,11 @@
 package com.mycompany.ams.features;
 
 import com.mycompany.ams.features.PathFinder.GetFilePath;
+import java.awt.Color;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 
 /**
  *
@@ -266,12 +270,29 @@ public class AdminPage extends javax.swing.JFrame {
     }//GEN-LAST:event_tenantsListBtnActionPerformed
 
     private void addTenantBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTenantBtnActionPerformed
+        
+        JFrame currentWindow = this;
+
+        // Gray out the current window
+        currentWindow.setBackground(new Color(128, 128, 128));
+        currentWindow.setEnabled(false);
+
+        // Open the new window
         AddTenant addTenant = new AddTenant();
-        addTenant.show();
-        addTenantBtn.setEnabled(false);
-        tenantsListBtn.setEnabled(false);
-        unitsListBtn.setEnabled(false);
-        pendingBtn.setEnabled(false);
+        addTenant.setVisible(true);
+
+        // Add a listener to the new window to check if it is closed
+        addTenant.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                // Re-enable the current window
+                currentWindow.setEnabled(true);
+                currentWindow.setBackground(null);
+
+                // Set the current window as the default
+                addTenant.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+            }
+        });
     }//GEN-LAST:event_addTenantBtnActionPerformed
 
     /**

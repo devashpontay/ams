@@ -372,8 +372,8 @@
         </Component>
         <Component class="javax.swing.JButton" name="jButton3">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="D:\Nelson\Programming\Programming Language\ams\src\main\java\com\mycompany\ams\resources\dial-icon.png"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="GetFilePath.getFilePath(&quot;dial-icon&quot;)" type="code"/>
             </Property>
           </Properties>
           <Events>

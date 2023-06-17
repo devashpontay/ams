@@ -107,6 +107,11 @@ public class AdminPage extends javax.swing.JFrame {
         unitsListBtn.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         unitsListBtn.setForeground(new java.awt.Color(208, 49, 49));
         unitsListBtn.setText("Display Units");
+        unitsListBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                unitsListBtnActionPerformed(evt);
+            }
+        });
 
         pendingBtn.setBackground(new java.awt.Color(239, 220, 220));
         pendingBtn.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
@@ -294,6 +299,12 @@ public class AdminPage extends javax.swing.JFrame {
             }
         });
     }//GEN-LAST:event_addTenantBtnActionPerformed
+
+    private void unitsListBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unitsListBtnActionPerformed
+        DisplayUnits displayUnits = new DisplayUnits();
+        displayUnits.show();
+        dispose();
+    }//GEN-LAST:event_unitsListBtnActionPerformed
 
     /**
      * @param args the command line arguments

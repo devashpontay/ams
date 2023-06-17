@@ -15,6 +15,8 @@ import java.awt.event.ActionListener;
 import java.awt.AlphaComposite;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 /**
  *
@@ -292,6 +294,27 @@ public class Unit3 extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+
+        // Get the current window
+        JFrame currentWindow = this;
+
+        // Gray out the current window
+        currentWindow.setBackground(new Color(128, 128, 128));
+        currentWindow.setEnabled(false);
+
+        // Open the new window
+        Registration_form_Unit1 registrationForm = new Registration_form_Unit1();
+        registrationForm.setVisible(true);
+
+        // Add a listener to the new window to check if it is closed
+        registrationForm.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                // Re-enable the current window
+                currentWindow.setEnabled(true);
+                currentWindow.setBackground(null);
+            }
+        });
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

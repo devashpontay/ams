@@ -4,7 +4,17 @@
  */
 package com.mycompany.ams.features;
 import com.mycompany.ams.features.PathFinder.GetFilePath;
+import java.awt.AlphaComposite;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.Timer;
 
 /**
  *
@@ -15,6 +25,8 @@ public class DisplayUnits extends javax.swing.JFrame {
     /**
      * Creates new form DisplayUnits
      */    
+    private Timer timer;
+    private float alpha;
     
     public DisplayUnits() {
         initComponents();
@@ -54,6 +66,7 @@ public class DisplayUnits extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         apartment_three = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,7 +85,12 @@ public class DisplayUnits extends javax.swing.JFrame {
         jButton2.setBackground(new java.awt.Color(208, 49, 49));
         jButton2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(244, 245, 244));
-        jButton2.setText("Admin");
+        jButton2.setText("Contact Us");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 48)); // NOI18N
         jLabel2.setText("Available Units");
@@ -185,50 +203,69 @@ public class DisplayUnits extends javax.swing.JFrame {
         apartment_three.setIcon(GetFilePath.getFilePath("apartment-three"));
         jPanel3.add(apartment_three, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
+        jButton5.setBackground(new java.awt.Color(239, 220, 220));
+        jButton5.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(208, 49, 49));
+        jButton5.setText("Home");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(36, 36, 36)
+                                    .addComponent(logo)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)))
+                            .addComponent(jButton2))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(60, 60, 60)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(20, 20, 20)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(20, 20, 20)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(36, 36, 36)
-                        .addComponent(logo)
-                        .addGap(648, 648, 648)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(22, 22, 22)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(55, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(logo)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
+                        .addGap(28, 28, 28)
+                        .addComponent(logo))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(22, 22, 22)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
 
         pack();
@@ -236,7 +273,13 @@ public class DisplayUnits extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:      
+        RegistrationForm reg = new RegistrationForm();
+
+        // Make the current JFrame invisible
+        this.setVisible(false);
+
+        // Make the previous JFrame visible
+        reg.setVisible(true);   
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -275,6 +318,99 @@ public class DisplayUnits extends javax.swing.JFrame {
         unit3.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // Set font properties
+        Font fontBold12 = new Font("Century Gothic", Font.BOLD, 12);
+        Font fontPlain10 = new Font("Century Gothic", Font.PLAIN, 10);
+
+        // Set color properties
+        Color bgColor = new Color(208, 49, 49); // #D03131 or rgb(208,49,49)
+        Color fontColor = new Color(244, 245, 244); // #F4F5F4 or rgb(244,245,244)
+
+        // Create business card content
+        String title = "Contact Us";
+        String name = "BMPT Real Estate Agent";
+        String agentTitle = "Apartment Agent";
+        String phone = "+63-912-314-5688";
+        String email = "bmpt_real.estate.agent@gmail.com";
+        String address = "Ayala Boulevard, Manila, Metro-Manila, Philippines";
+
+        // Create the business card message with custom formatting
+        String message = "<html><body style='font-family: Century Gothic;'>"
+                + "<div style='background-color: " + getHexColor(bgColor) + "; padding: 8px;'>"
+                + "<div style='color: " + getHexColor(fontColor) + "; font-size: 12px; font-weight: bold;'>" + name + "</div>"
+                + "<div style='color: " + getHexColor(fontColor) + "; font-size: 10px;'>" + agentTitle + "</div>"
+                + "<br>"
+                + "<div style='color: " + getHexColor(fontColor) + "; font-size: 10px;'>" + phone + "</div>"
+                + "<div style='color: " + getHexColor(fontColor) + "; font-size: 10px;'>" + email + "</div>"
+                + "<div style='color: " + getHexColor(fontColor) + "; font-size: 10px;'>" + address + "</div>"
+                + "</div>"
+                + "</body></html>";
+
+        // Create a JFrame to host the JOptionPane
+        JFrame frame = new JFrame();
+
+        // Create the message label with initial transparency
+        JLabel label = new JLabel(message) {
+            @Override
+            public void paintComponent(Graphics g) {
+                Graphics2D g2d = (Graphics2D) g;
+                g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alpha));
+                super.paintComponent(g2d);
+            }
+        };
+
+        // Set the initial transparency to 0
+        alpha = 0f;
+
+        // Create the timer to control the animation
+        timer = new Timer(10, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Gradually increase the transparency until fully opaque
+                alpha += 0.02f;
+                if (alpha >= 1f) {
+                    alpha = 1f;
+                    timer.stop();
+                }
+                label.repaint();
+            }
+        });
+
+        // Start the timer to initiate the fade-in animation
+        timer.start();
+
+        // Display the business card in a JOptionPane with custom formatting
+        JOptionPane.showMessageDialog(frame, label, title, JOptionPane.PLAIN_MESSAGE);
+
+        // Set the fonts for the message in the JOptionPane
+        for (java.awt.Component component : frame.getContentPane().getComponents()) {
+            if (component instanceof javax.swing.JLabel) {
+                javax.swing.JLabel jlabel = (javax.swing.JLabel) component;
+                if (jlabel.getFont().getSize() == 12 && jlabel.getFont().isBold()) {
+                    jlabel.setFont(fontBold12);
+                } else if (jlabel.getFont().getSize() == 10 && !jlabel.getFont().isBold()) {
+                    jlabel.setFont(fontPlain10);
+                }
+            }
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // Get the previous JFrame
+        LandingPage home = new LandingPage();
+
+        // Make the current JFrame invisible
+        this.setVisible(false);
+
+        // Make the previous JFrame visible
+        home.setVisible(true);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private String getHexColor(Color color) {
+        return String.format("#%06x", color.getRGB() & 0xFFFFFF);
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -318,6 +454,7 @@ public class DisplayUnits extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

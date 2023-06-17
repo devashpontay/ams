@@ -81,7 +81,7 @@ public class LandingPage extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(244, 245, 244));
         jButton1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jButton1.setText("ADMIN");
+        jButton1.setText("Admin");
         jButton1.setBorder(null);
         jButton1.setBorderPainted(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -92,7 +92,7 @@ public class LandingPage extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(244, 245, 244));
         jButton2.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        jButton2.setText("MY UNIT");
+        jButton2.setText("My Unit");
         jButton2.setBorder(null);
         jButton2.setBorderPainted(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -207,7 +207,14 @@ public class LandingPage extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        // Get the next JFrame
+        DisplayUnits displayUnits = new DisplayUnits();
+
+        // Make the current JFrame invisible
+        this.setVisible(false);
+
+        // Make the next JFrame visible
+        displayUnits.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

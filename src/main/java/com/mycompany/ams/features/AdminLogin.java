@@ -7,6 +7,8 @@ package com.mycompany.ams.features;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -25,14 +27,12 @@ public class AdminLogin extends javax.swing.JFrame {
         initComponents();
         
         jButton1.addActionListener(new LoginButtonListener());
-
         jButton2.addActionListener(new CancelButtonListener());
+        
+        jTextField1.addKeyListener(new UsernameFieldKeyListener());
+        jPasswordField1.addKeyListener(new PasswordFieldKeyListener());
     }
     
-    
-    
-
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -249,6 +249,40 @@ public class AdminLogin extends javax.swing.JFrame {
         public void actionPerformed(ActionEvent e) {
             dispose();
             // Code to go back to the starting interface or perform other actions on cancel
+        }
+    }
+    
+    private class UsernameFieldKeyListener implements KeyListener {
+        @Override
+        public void keyPressed(KeyEvent e) {
+            if (e.getKeyCode() == KeyEvent.VK_ENTER || e.getKeyCode() == KeyEvent.VK_TAB) {
+                jPasswordField1.requestFocus();
+            }
+        }
+
+        @Override
+        public void keyTyped(KeyEvent e) {
+        }
+
+        @Override
+        public void keyReleased(KeyEvent e) {
+        }
+    }
+    
+    private class PasswordFieldKeyListener implements KeyListener {
+        @Override
+        public void keyPressed(KeyEvent e) {
+            if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                jButton1.doClick();
+            }
+        }
+
+        @Override
+        public void keyTyped(KeyEvent e) {
+        }
+
+        @Override
+        public void keyReleased(KeyEvent e) {
         }
     }
 

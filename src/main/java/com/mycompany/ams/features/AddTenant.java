@@ -119,50 +119,65 @@ public class AddTenant extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        BackgroundP.setBackground(new java.awt.Color(244, 245, 244));
+        BackgroundP.setBackground(new java.awt.Color(208, 49, 49));
 
         layer2bg.setBackground(new java.awt.Color(255, 255, 255));
 
+        fname.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         fname.setText("FULLNAME");
 
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel2.setText("CONTACT NO");
 
+        jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel4.setText("EMAIL");
 
+        jLabel6.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel6.setText("FLOOR NO.");
 
+        jLabel7.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel7.setText("UNIT NO.");
 
-        jButton1.setBackground(new java.awt.Color(0, 153, 153));
-        jButton1.setText("SAVE");
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.setBackground(new java.awt.Color(208, 49, 49));
+        jButton1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(244, 245, 244));
+        jButton1.setText("Save");
+        jButton1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(0, 153, 153));
-        jButton3.setText("BACK");
-        jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton3.setBackground(new java.awt.Color(208, 49, 49));
+        jButton3.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(244, 245, 244));
+        jButton3.setText("Back");
+        jButton3.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
 
-        jLabel11.setFont(new java.awt.Font("PMingLiU-ExtB", 1, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 153));
+        jLabel11.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(208, 49, 49));
         jLabel11.setText("New Tenant");
 
         logo.setText(" ");
 
+        jTextFieldFullName.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jTextFieldFullName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldFullNameActionPerformed(evt);
             }
         });
 
+        jTextFieldContactNo.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+
+        jTextFieldEmail.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+
+        floorNo.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         floorNo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3" }));
         floorNo.setSelectedItem(null);
         floorNo.addActionListener(new java.awt.event.ActionListener() {
@@ -171,6 +186,7 @@ public class AddTenant extends javax.swing.JFrame {
             }
         });
 
+        unitNo.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         unitNo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
 
         javax.swing.GroupLayout layer2bgLayout = new javax.swing.GroupLayout(layer2bg);
@@ -178,7 +194,7 @@ public class AddTenant extends javax.swing.JFrame {
         layer2bgLayout.setHorizontalGroup(
             layer2bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layer2bgLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(39, 39, 39)
                 .addGroup(layer2bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layer2bgLayout.createSequentialGroup()
                         .addComponent(jLabel11)
@@ -203,7 +219,7 @@ public class AddTenant extends javax.swing.JFrame {
                             .addComponent(jLabel7)
                             .addComponent(unitNo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(floorNo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
         layer2bgLayout.setVerticalGroup(
             layer2bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -246,7 +262,7 @@ public class AddTenant extends javax.swing.JFrame {
             .addGroup(BackgroundPLayout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addComponent(layer2bg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         BackgroundPLayout.setVerticalGroup(
             BackgroundPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -260,10 +276,7 @@ public class AddTenant extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(BackgroundP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(BackgroundP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -363,7 +376,14 @@ public class AddTenant extends javax.swing.JFrame {
     }//GEN-LAST:event_floorNoActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        dispose();
+        // Get the previous JFrame
+        AdminPage adminPg = new AdminPage();
+
+        // Make the current JFrame invisible
+        this.setVisible(false);
+
+        // Make the previous JFrame visible
+        adminPg.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**

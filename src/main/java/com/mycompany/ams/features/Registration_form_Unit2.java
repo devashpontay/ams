@@ -92,7 +92,7 @@ public class Registration_form_Unit2 extends javax.swing.JFrame {
 
         jLabel12.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(208, 49, 49));
-        jLabel12.setText("Checkout");
+        jLabel12.setText("Request to Rent");
 
         jTextField1.setBackground(new java.awt.Color(232, 232, 233));
         jTextField1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
@@ -154,8 +154,9 @@ public class Registration_form_Unit2 extends javax.swing.JFrame {
         jLabel21.setText("TOTAL PRICE");
 
         jButton1.setBackground(new java.awt.Color(208, 49, 49));
+        jButton1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(244, 245, 244));
-        jButton1.setText("PAY");
+        jButton1.setText("Submit");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);

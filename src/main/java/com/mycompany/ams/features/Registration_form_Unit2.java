@@ -4,6 +4,7 @@
  */
 package com.mycompany.ams.features;
 import com.mycompany.ams.features.PathFinder.GetFilePath;
+import com.mycompany.ams.features.RoomDisabler.RoomChecker;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -14,6 +15,7 @@ import javax.swing.JOptionPane;
 import java.awt.Color;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import java.util.ArrayList;
 import javax.swing.JTextField;
 /**
  *
@@ -27,6 +29,17 @@ public class Registration_form_Unit2 extends javax.swing.JFrame {
     public Registration_form_Unit2() {
         initComponents();
         setPlaceholders();
+        initComboBox();
+    }
+    
+    private void initComboBox() {
+        RoomChecker roomChecker = new RoomChecker();
+        ArrayList<String> occupiedRoom = roomChecker.getOccupiedRoomFloorTwo();
+
+        for (int i = 0; i < occupiedRoom.size(); i++) {
+            roomNum.removeItem(occupiedRoom.get(i));
+        }
+
     }
     
     private void setPlaceholders() {

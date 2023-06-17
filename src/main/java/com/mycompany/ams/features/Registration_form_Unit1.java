@@ -37,8 +37,8 @@ public class Registration_form_Unit1 extends javax.swing.JFrame {
         RoomChecker roomChecker = new RoomChecker();
         ArrayList<String> occupiedRoom = roomChecker.getOccupiedRoomFloorOne();
 
-        for(int i = 1; i <= 10; i++) {
-            if(roomNum.getItemAt(i-1).equals(occupiedRoom.get(i)))
+        for (int i = 0; i < occupiedRoom.size(); i++) {
+            roomNum.removeItem(occupiedRoom.get(i));
         }
 
     }
@@ -204,7 +204,7 @@ public class Registration_form_Unit1 extends javax.swing.JFrame {
 
         roomNum.setBackground(new java.awt.Color(232, 232, 233));
         roomNum.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        roomNum.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
+        roomNum.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"101", "102", "103", "104", "105", "106", "107", "108", "109", "110"}));
         roomNum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 roomNumActionPerformed(evt);

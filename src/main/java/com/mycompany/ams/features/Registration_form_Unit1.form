@@ -451,7 +451,7 @@
               <Font name="Century Gothic" size="12" style="0"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] {})" type="code"/>
+              <Connection code="new javax.swing.DefaultComboBoxModel&lt;&gt;(new String[] {&quot;101&quot;, &quot;102&quot;, &quot;103&quot;, &quot;104&quot;, &quot;105&quot;, &quot;106&quot;, &quot;107&quot;, &quot;108&quot;, &quot;109&quot;, &quot;110&quot;})" type="code"/>
             </Property>
           </Properties>
           <Events>

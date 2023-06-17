@@ -17,18 +17,19 @@ import javax.swing.table.DefaultTableModel;
 public class RoomChecker {
 
     public ArrayList<String> occupiedRoom = new ArrayList<>();
-    public  ArrayList<String> getOccupiedRoomFloorOne() {
+
+    public ArrayList<String> getOccupiedRoomFloorOne() {
         BufferedReader reader;
         try {
             reader = new BufferedReader(new FileReader("TenantsDB.txt"));
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] data = line.split("/");
-                if(data[6].equals("1")) {
+                if (data[6].equals("1")) {
                     occupiedRoom.add(data[7]);
                 }
             }
-            
+
             reader.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -36,11 +37,41 @@ public class RoomChecker {
         return occupiedRoom;
     }
 
-//    public static int[] getOccupiedRoomFloorTwo() {
-//
-//    }
-//
-//    public static int[] getOccupiedRoomFloorThree() {
-//
-//    }
+    public ArrayList<String> getOccupiedRoomFloorTwo() {
+        BufferedReader reader;
+        try {
+            reader = new BufferedReader(new FileReader("TenantsDB.txt"));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] data = line.split("/");
+                if (data[6].equals("2")) {
+                    occupiedRoom.add(data[7]);
+                }
+            }
+
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return occupiedRoom;
+    }
+
+    public ArrayList<String> getOccupiedRoomFloorThree() {
+        BufferedReader reader;
+        try {
+            reader = new BufferedReader(new FileReader("TenantsDB.txt"));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] data = line.split("/");
+                if (data[6].equals("3")) {
+                    occupiedRoom.add(data[7]);
+                }
+            }
+
+            reader.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return occupiedRoom;
+    }
 }

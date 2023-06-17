@@ -15,6 +15,10 @@ import java.awt.event.ActionListener;
 import java.awt.AlphaComposite;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Dialog;
+import javax.swing.JPanel;
+import javax.swing.JRootPane;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -291,7 +295,28 @@ public class Unit1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        // Create a new instance of the Registration_form_Unit1 JFrame
+        Registration_form_Unit1 registrationForm = new Registration_form_Unit1();
+
+        // Create a glass pane and set its properties
+        JPanel glassPane = new JPanel();
+        glassPane.setOpaque(false);
+
+        // Get the root pane of the current JFrame
+        JRootPane rootPane = SwingUtilities.getRootPane(this);
+
+        // Set the glass pane to cover the root pane
+        rootPane.setGlassPane(glassPane);
+        glassPane.setVisible(true);
+
+        // Set the modality of the new JFrame
+        registrationForm.setModalExclusionType(Dialog.ModalExclusionType.APPLICATION_EXCLUDE);
+
+        // Show the new JFrame
+        registrationForm.setVisible(true);
+
+        // Restore the visibility of the glass pane
+        glassPane.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

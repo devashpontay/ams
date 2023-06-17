@@ -4,10 +4,12 @@
  */
 package com.mycompany.ams.features;
 
+import com.mycompany.ams.features.RoomDisabler.RoomChecker;
 import javax.swing.JOptionPane;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -226,25 +228,43 @@ public class RegistrationForm extends javax.swing.JFrame {
 
     private void floorChoiceNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floorChoiceNoActionPerformed
         // TODO add your handling code here:
-        
-        if(floorChoiceNo.getSelectedItem().equals("1")) {
+
+        if (floorChoiceNo.getSelectedItem().equals("1")) {
             unitChoiceNo.removeAllItems();
-            for(int i = 101; i <= 110; i++) {
+            for (int i = 101; i <= 110; i++) {
                 System.out.println(i);
                 String tempItem = Integer.toString(i);
                 unitChoiceNo.addItem(tempItem);
             }
-        }else if (floorChoiceNo.getSelectedItem().equals("2")) {
+            RoomChecker roomChecker = new RoomChecker();
+            ArrayList<String> occupiedRoom = roomChecker.getOccupiedRoomFloorOne();
+
+            for (int i = 0; i < occupiedRoom.size(); i++) {
+                unitChoiceNo.removeItem(occupiedRoom.get(i));
+            }
+        } else if (floorChoiceNo.getSelectedItem().equals("2")) {
             unitChoiceNo.removeAllItems();
-            for(int i = 201; i <= 210; i++) {
+            for (int i = 201; i <= 210; i++) {
                 String tempItem = Integer.toString(i);
                 unitChoiceNo.addItem(tempItem);
             }
-        }else {
+            RoomChecker roomChecker = new RoomChecker();
+            ArrayList<String> occupiedRoom = roomChecker.getOccupiedRoomFloorTwo();
+
+            for (int i = 0; i < occupiedRoom.size(); i++) {
+                unitChoiceNo.removeItem(occupiedRoom.get(i));
+            }
+        } else {
             unitChoiceNo.removeAllItems();
-            for(int i = 301; i <= 310; i++) {
+            for (int i = 301; i <= 310; i++) {
                 String tempItem = Integer.toString(i);
                 unitChoiceNo.addItem(tempItem);
+            }
+            RoomChecker roomChecker = new RoomChecker();
+            ArrayList<String> occupiedRoom = roomChecker.getOccupiedRoomFloorThree();
+
+            for (int i = 0; i < occupiedRoom.size(); i++) {
+                unitChoiceNo.removeItem(occupiedRoom.get(i));
             }
         }
 
@@ -252,7 +272,7 @@ public class RegistrationForm extends javax.swing.JFrame {
     }//GEN-LAST:event_floorChoiceNoActionPerformed
 
     private void unitChoiceNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unitChoiceNoActionPerformed
-        
+
     }//GEN-LAST:event_unitChoiceNoActionPerformed
 
     private void regFormSubmitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regFormSubmitBtnActionPerformed
@@ -300,11 +320,11 @@ public class RegistrationForm extends javax.swing.JFrame {
 
     private void clientFullNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientFullNameActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_clientFullNameActionPerformed
 
     private void clientEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientEmailActionPerformed
-        
+
     }//GEN-LAST:event_clientEmailActionPerformed
 
     private void clientContactNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientContactNoActionPerformed

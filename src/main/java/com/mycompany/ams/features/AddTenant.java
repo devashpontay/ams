@@ -338,18 +338,6 @@ public class AddTenant extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        JButton addTenantBtn = AdminPage.getAddTenantBtn();
-        addTenantBtn.setEnabled(true);
-        JButton tenantsListBtn = AdminPage.getTenantsListBtn();
-        tenantsListBtn.setEnabled(true);
-        JButton unitsListBtn = AdminPage.getUnitsListBtn();
-        unitsListBtn.setEnabled(true);
-        JButton pendingBtn = AdminPage.getPendingBtn();
-        pendingBtn.setEnabled(true);
-        dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
-
     private void floorNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floorNoActionPerformed
         
         if (floorNo.getSelectedItem().equals("1")) {
@@ -373,6 +361,10 @@ public class AddTenant extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_floorNoActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments

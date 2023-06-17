@@ -11,7 +11,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import javax.swing.JOptionPane;
-
+import com.mycompany.ams.features.PathFinder.GetFilePath;
 /**
  *
  * @author Ezekiel Billona
@@ -106,7 +106,7 @@ public class AdminLogin extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(51, 102, 255));
         jLabel4.setText("Forgot Password?");
 
-        iconRight.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/ams/resources/admin_logo.png"))); // NOI18N
+        iconRight.setIcon(GetFilePath.getFilePath("admin_logo"));
 
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -117,7 +117,7 @@ public class AdminLogin extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(239, 220, 220));
         jPanel2.setForeground(new java.awt.Color(208, 49, 49));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/ams/resources/bg-login.png"))); // NOI18N
+        jLabel8.setIcon(GetFilePath.getFilePath("bg-login"));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -213,7 +213,7 @@ public class AdminLogin extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 568, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 

@@ -11,21 +11,25 @@ import java.awt.event.WindowEvent;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import java.awt.Frame;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import javax.swing.JOptionPane;
+import com.mycompany.ams.features.stringmanipulation.StringManipulation;
 
 /**
  *
  * @author finns
  */
 public class AdminPage extends javax.swing.JFrame {
-
+    StringManipulation strManipulate = new StringManipulation();
     /**
      * Creates new form AdminPage
      */
     public AdminPage() {
         initComponents();
     }
-    
+
 //    private Icon getpath(String fileName ){
 //      String projectDirectory = System.getProperty("user.dir");
 //        String filePath = projectDirectory + File.separator + "src" + File.separator + "main"+ File.separator + "java"+ File.separator + "com" + File.separator + "mycompany"+ File.separator + "ams" + File.separator + "resources" + File.separator + fileName + ".png";
@@ -47,10 +51,6 @@ public class AdminPage extends javax.swing.JFrame {
 //        }
 //       return finalIcon;
 //    }
-
-    
-
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -289,7 +289,7 @@ public class AdminPage extends javax.swing.JFrame {
         // Make the previous JFrame visible
         list.setVisible(true);
 
-         
+
     }//GEN-LAST:event_tenantsListBtnActionPerformed
 
     private void addTenantBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTenantBtnActionPerformed
@@ -342,6 +342,19 @@ public class AdminPage extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         int result = JOptionPane.showConfirmDialog(this, "Are you sure you want to sign out?", "Sign Out", JOptionPane.YES_NO_OPTION);
         if (result == JOptionPane.YES_OPTION) {
+            try {
+                FileWriter fileWriter = new FileWriter("accounts.txt");
+                BufferedWriter writer = new BufferedWriter(fileWriter);
+
+                String data = "admin:1234:false";
+                String encrpytedData = strManipulate.encrypt(data);
+                writer.write(encrpytedData);
+                writer.newLine();
+                writer.close();
+            } catch (IOException e) {
+                // Handle any exceptions that occur during file writing
+                JOptionPane.showMessageDialog(null, "Failed to save tenant details!");
+            }
             LandingPage landingPage = new LandingPage();
             landingPage.setVisible(true);
             dispose();
@@ -381,7 +394,7 @@ public class AdminPage extends javax.swing.JFrame {
                 new AdminPage().setVisible(true);
             }
         });
-        
+
     }
 
     public static JButton getAddTenantBtn() {
@@ -399,9 +412,7 @@ public class AdminPage extends javax.swing.JFrame {
     public static JButton getUnitsListBtn() {
         return unitsListBtn;
     }
-    
-    
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private static javax.swing.JButton addTenantBtn;

@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import com.mycompany.ams.features.stringmanipulation.StringManipulation;
 
 /**
  *
@@ -23,6 +24,7 @@ import javax.swing.JOptionPane;
 public class EditingForm extends javax.swing.JFrame {
     String selectedTenantIdNo;
     MyLinkedList linkedList = new MyLinkedList();
+    StringManipulation strManipulate = new StringManipulation();
     /**
      * Creates new form EditingForm
      * @param idNo
@@ -354,8 +356,8 @@ public class EditingForm extends javax.swing.JFrame {
             reader = new BufferedReader(new FileReader("TenantsDB.txt"));
             String line;
             while((line = reader.readLine()) != null) {
+                line = strManipulate.decrypt(line);
                 String[] data = line.split("/");
-                
                 linkedList.add(data[0], data[1], data[2], data[3], Integer.parseInt(data[4]), Integer.parseInt(data[5]), Integer.parseInt(data[6]), Integer.parseInt(data[7]));    
             }
             reader.close();
@@ -419,7 +421,10 @@ public class EditingForm extends javax.swing.JFrame {
         try {
             writer = new BufferedWriter(new FileWriter("TenantsDB.txt"));
             while(currentNode != null) {
-                writer.write(currentNode.getIdNo() + "/" + currentNode.getFullname() + "/" + currentNode.getContactNo() + "/" + currentNode.getEmail() + "/" + currentNode.getBalance() + "/" + currentNode.getSecurityDeposit() + "/" + currentNode.getFloorNo() + "/" + currentNode.getUnitNo() + "\n");
+                String data = currentNode.getIdNo() + "/" + currentNode.getFullname() + "/" + currentNode.getContactNo() + "/" + currentNode.getEmail() + "/" + currentNode.getBalance() + "/" + currentNode.getSecurityDeposit() + "/" + currentNode.getFloorNo() + "/" + currentNode.getUnitNo();
+                String encryptedData = strManipulate.encrypt(data);
+                writer.write(encryptedData);
+                writer.newLine();
                 currentNode = currentNode.next;
             }
             writer.close();

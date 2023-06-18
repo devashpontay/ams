@@ -14,25 +14,32 @@ import java.io.FileReader;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 import com.mycompany.ams.features.PathFinder.GetFilePath;
+import com.mycompany.ams.features.stringmanipulation.StringManipulation;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+
 /**
  *
  * @author Ezekiel Billona
  */
 public class AdminLogin extends javax.swing.JFrame {
 
+    StringManipulation strManipulate = new StringManipulation();
+
     /**
      * Creates new form AdminLogin
      */
     public AdminLogin() {
         initComponents();
-        
+
         jButton1.addActionListener(new LoginButtonListener());
         jButton2.addActionListener(new CancelButtonListener());
-        
+
         jTextField1.addKeyListener(new UsernameFieldKeyListener());
         jPasswordField1.addKeyListener(new PasswordFieldKeyListener());
+        System.out.println(strManipulate.encrypt("admin:1234:false"));
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -222,6 +229,7 @@ public class AdminLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private class LoginButtonListener implements ActionListener {
+
         @Override
         public void actionPerformed(ActionEvent e) {
             String username = jTextField1.getText();
@@ -231,10 +239,10 @@ public class AdminLogin extends javax.swing.JFrame {
 
             if (accountExists) {
                 Frame[] landingPages = LandingPage.getFrames();
-                for(Frame landingPage : landingPages) {
+                for (Frame landingPage : landingPages) {
                     landingPage.dispose();
                 }
-                
+
                 AdminPage adminPage = new AdminPage();
                 adminPage.show();
                 dispose();
@@ -245,14 +253,16 @@ public class AdminLogin extends javax.swing.JFrame {
     }
 
     private class CancelButtonListener implements ActionListener {
+
         @Override
         public void actionPerformed(ActionEvent e) {
             dispose();
             // Code to go back to the starting interface or perform other actions on cancel
         }
     }
-    
+
     private class UsernameFieldKeyListener implements KeyListener {
+
         @Override
         public void keyPressed(KeyEvent e) {
             if (e.getKeyCode() == KeyEvent.VK_ENTER || e.getKeyCode() == KeyEvent.VK_TAB) {
@@ -268,8 +278,9 @@ public class AdminLogin extends javax.swing.JFrame {
         public void keyReleased(KeyEvent e) {
         }
     }
-    
+
     private class PasswordFieldKeyListener implements KeyListener {
+
         @Override
         public void keyPressed(KeyEvent e) {
             if (e.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -292,6 +303,7 @@ public class AdminLogin extends javax.swing.JFrame {
             try (BufferedReader bufferedReader = new BufferedReader(fileReader)) {
                 String line;
                 while ((line = bufferedReader.readLine()) != null) {
+                    line = strManipulate.decrypt(line);
                     String[] parts = line.split(":");
                     String storedUsername = parts[0];
                     String storedPassword = parts[1];
@@ -308,13 +320,24 @@ public class AdminLogin extends javax.swing.JFrame {
 
         return false;
     }
-    
+
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        try {
+            FileWriter fileWriter = new FileWriter("accounts.txt");
+            BufferedWriter writer = new BufferedWriter(fileWriter);
+
+            String data = "admin:1234:true";
+            String encrpytedData = strManipulate.encrypt(data);
+            writer.write(encrpytedData);
+            writer.newLine();
+            writer.close();
+
+        } catch (IOException e) {
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

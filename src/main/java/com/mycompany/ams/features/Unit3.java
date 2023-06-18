@@ -254,7 +254,7 @@ public class Unit3 extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(53, 53, 53))
+                        .addGap(0, 0, 0))
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
@@ -284,7 +284,7 @@ public class Unit3 extends javax.swing.JFrame {
                             .addComponent(jLabel12)
                             .addComponent(jLabel13)))
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -293,7 +293,7 @@ public class Unit3 extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // Get the next JFrame
-        Registration_form_Unit1 registrationForm = new Registration_form_Unit1();
+        Registration_form_Unit3 registrationForm = new Registration_form_Unit3();
 
         // Make the current JFrame invisible
         this.setVisible(false);

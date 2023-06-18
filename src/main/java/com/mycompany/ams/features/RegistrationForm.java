@@ -5,6 +5,7 @@
 package com.mycompany.ams.features;
 
 import com.mycompany.ams.features.RoomDisabler.RoomChecker;
+import com.mycompany.ams.features.PathFinder.GetFilePath;
 import javax.swing.JOptionPane;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -258,11 +259,11 @@ public class RegistrationForm extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, -1, 492));
 
-        jButton2.setIcon(new javax.swing.ImageIcon("D:\\Nelson\\Programming\\Programming Language\\ams\\src\\main\\java\\com\\mycompany\\ams\\resources\\small-admin-logo.png")); // NOI18N
+        jButton2.setIcon(GetFilePath.getFilePath("small-admin-logo"));
         jButton2.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Nelson\\Programming\\Programming Language\\ams\\src\\main\\java\\com\\mycompany\\ams\\resources\\reg-center-image.png")); // NOI18N
+        jLabel1.setIcon(GetFilePath.getFilePath("reg-center-image"));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();

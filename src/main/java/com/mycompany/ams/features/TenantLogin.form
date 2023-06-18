@@ -142,8 +142,8 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\Ashley Pontay\Downloads\main-img-logn.png"/>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="GetFilePath.getFilePath(&quot;main-img-logn&quot;)" type="code"/>
                 </Property>
               </Properties>
             </Component>

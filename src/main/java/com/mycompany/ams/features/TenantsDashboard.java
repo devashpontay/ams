@@ -3,87 +3,164 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.ams.features;
+
 import com.mycompany.ams.features.PathFinder.GetFilePath;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-
+import com.mycompany.ams.features.stringmanipulation.StringManipulation;
+import com.mycompany.ams.features.data_struct.MyLinkedList;
+import com.mycompany.ams.features.data_struct.Node;
+import java.io.FileNotFoundException;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author finns
  */
 public class TenantsDashboard extends javax.swing.JFrame {
-   
+
+    StringManipulation strManipulate = new StringManipulation();
+    MyLinkedList linkedList = new MyLinkedList();
+    int activeTenant;
+
     public TenantsDashboard() {
         initComponents();
+    }
+
+    public TenantsDashboard(int roomNo) {
+        initComponents();
+        activeTenant = roomNo;
+        initLinkedList();
         populateTenantInformation();
     }
 
     private void populateTenantInformation() {
-        //String filePath = "TenantDB.txt";
-        BufferedReader tenantReader;
-        BufferedReader requestReader;
+        Node currentNode = linkedList.head;
+
+        while (currentNode != null && currentNode.getUnitNo() != activeTenant) {
+            currentNode = currentNode.next;
+        }
+        String[] tenantName = currentNode.getFullname().split(" ");
+        TenantName.setText(currentNode.getFullname());
+        firstName.setText(tenantName[0]);
+        ContactNum.setText(currentNode.getContactNo());
+        Email.setText(currentNode.getEmail());
+        Balance.setText(String.valueOf("P" + currentNode.getBalance()));
+        deposit.setText(String.valueOf("P" + currentNode.getSecurityDeposit()));
+        String floorAndRoom = getFloorAndRoomInfo(currentNode.getFloorNo(), currentNode.getUnitNo());
+        floorNum.setText(floorAndRoom);
+        String floorInfo = getFloorInfo(currentNode.getFloorNo());
+        roomNum.setText(floorInfo);
+
+        setAmenitiesByFloor(currentNode.getFloorNo());
+        numOfTenants.setText(getTenantsCount() + " tenants");
+
+        BufferedReader requestCountReader;
+        int requestFormCount = 0;
         try {
-            tenantReader = new BufferedReader(new FileReader("TenantsDB.txt"));
-            requestReader = new BufferedReader(new FileReader("PendingTransDB.txt"));
-            String line;
-            int tenantCount = 0;
-
-            while ((line = tenantReader.readLine()) != null) {
-                String[] fields = line.split("/");
-                String idNo = fields[0];
-                String fullname = fields[1];
-                String contactNo = fields[2];
-                String email = fields[3];
-                int balance = Integer.parseInt(fields[4]);
-                int securityDeposit = Integer.parseInt(fields[5]);
-                int floorNo = Integer.parseInt(fields[6]);
-                int roomNo = Integer.parseInt(fields[7]);
-
-                if (tenantCount == 0) {
-                    // Extract the first name from the full name
-                    String FirstName = fullname.split(" ")[0] + "!";
-                    //FirstName += "!"; // Add an exclamation mark
-                    
-                    TenantName.setText(fullname);
-                    firstName.setText(FirstName);
-                    ContactNum.setText(contactNo);
-                    Email.setText(email);
-                    Balance.setText(String.valueOf("P" + balance));
-                    deposit.setText(String.valueOf("P" + securityDeposit));
-                    String floorAndRoom = getFloorAndRoomInfo(floorNo, roomNo);
-                    floorNum.setText(floorAndRoom);
-                    String floorInfo = getFloorInfo(floorNo);
-                    roomNum.setText(floorInfo);
-                    
-                    // Set the amenities based on the floor number
-                    setAmenitiesByFloor(floorNo);
-                }
-
-                tenantCount++;
+            requestCountReader = new BufferedReader(new FileReader("PendingTransDB.txt"));
+            while ((requestCountReader.readLine()) != null) {
+                requestFormCount++;
             }
+            requestCountReader.close();
+            numOfRequests.setText(String.valueOf(requestFormCount + " requests"));
 
-            numOfTenants.setText(tenantCount + " tenants");
-            
-            // Read requests information and count the number of lines
-            int requestCount = 0;
-            while (requestReader.readLine() != null) {
-                requestCount++;
-            }
-
-            numOfRequests.setText(String.valueOf(requestCount + " requests"));
-            
-            // Display the current date
-            LocalDate currentDate = LocalDate.now();
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MMMM yyyy, EEEE");
-            String formattedDate = currentDate.format(formatter);
-            currentDateLabel.setText(formattedDate);
-            
         } catch (IOException e) {
             e.printStackTrace();
+        }
+
+        //            e.printStackTrace();
+//        }
+//        //String filePath = "TenantDB.txt";
+//        BufferedReader tenantReader;
+//        BufferedReader requestReader;
+//        try {
+//            tenantReader = new BufferedReader(new FileReader("TenantsDB.txt"));
+//            requestReader = new BufferedReader(new FileReader("PendingTransDB.txt"));
+//            String line;
+//            int tenantCount = 0;
+//
+//            while ((line = tenantReader.readLine()) != null) {
+//                String[] fields = line.split("/");
+//                String idNo = fields[0];
+//                String fullname = fields[1];
+//                String contactNo = fields[2];
+//                String email = fields[3];
+//                int balance = Integer.parseInt(fields[4]);
+//                int securityDeposit = Integer.parseInt(fields[5]);
+//                int floorNo = Integer.parseInt(fields[6]);
+//                int roomNo = Integer.parseInt(fields[7]);
+//
+//                if (tenantCount == 0) {
+//                    // Extract the first name from the full name
+//                    String FirstName = fullname.split(" ")[0] + "!";
+//                    //FirstName += "!"; // Add an exclamation mark
+//                    
+//                    TenantName.setText(fullname);
+//                    firstName.setText(FirstName);
+//                    ContactNum.setText(contactNo);
+//                    Email.setText(email);
+//                    Balance.setText(String.valueOf("P" + balance));
+//                    deposit.setText(String.valueOf("P" + securityDeposit));
+//                    String floorAndRoom = getFloorAndRoomInfo(floorNo, roomNo);
+//                    floorNum.setText(floorAndRoom);
+//                    String floorInfo = getFloorInfo(floorNo);
+//                    roomNum.setText(floorInfo);
+//                    
+//                    // Set the amenities based on the floor number
+//                    setAmenitiesByFloor(floorNo);
+//                }
+//
+//                tenantCount++;
+//            }
+//
+//            numOfTenants.setText(tenantCount + " tenants");
+//            
+//            // Read requests information and count the number of lines
+//            int requestCount = 0;
+//            while (requestReader.readLine() != null) {
+//                requestCount++;
+//            }
+//
+//            numOfRequests.setText(String.valueOf(requestCount + " requests"));
+//            
+//            // Display the current date
+//            LocalDate currentDate = LocalDate.now();
+//            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MMMM yyyy, EEEE");
+//            String formattedDate = currentDate.format(formatter);
+//            currentDateLabel.setText(formattedDate);
+//            
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+    }
+
+    private int getTenantsCount() {
+        Node currentNode = linkedList.head;
+        int tenantsCount = 0;
+        while (currentNode != null) {
+            tenantsCount++;
+            currentNode = currentNode.next;
+        }
+
+        return tenantsCount;
+    }
+
+    private void initLinkedList() {
+        BufferedReader reader;
+        try {
+            reader = new BufferedReader(new FileReader("TenantsDB.txt"));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                line = strManipulate.decrypt(line);
+                String[] data = line.split("/");
+                linkedList.add(data[0], data[1], data[2], data[3], Integer.parseInt(data[4]), Integer.parseInt(data[5]), Integer.parseInt(data[6]), Integer.parseInt(data[7]), data[8]);
+            }
+            reader.close();
+        } catch (IOException e) {
         }
     }
 
@@ -102,7 +179,6 @@ public class TenantsDashboard extends javax.swing.JFrame {
         return floorInfo + ", Room " + roomNo;
     }
 
-    
     private String getFloorInfo(int floorInfo) {
         if (floorInfo == 1) {
             return "1 living room, 1 bathroom, 1 kitchen, 29 m²";
@@ -114,7 +190,7 @@ public class TenantsDashboard extends javax.swing.JFrame {
             return "";
         }
     }
-    
+
     private void setAmenitiesByFloor(int floorNo) {
         if (floorNo == 1) {
             equipment1.setText("Fitness Center");
@@ -367,11 +443,12 @@ public class TenantsDashboard extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(null, "To be implemented soon!");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        ChangeTenantPassword changePass = new ChangeTenantPassword(linkedList, activeTenant);
+        changePass.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

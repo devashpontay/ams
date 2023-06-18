@@ -8,6 +8,7 @@ import com.mycompany.ams.features.data_struct.MyLinkedList;
 import com.mycompany.ams.features.data_struct.Node;
 import com.mycompany.ams.features.stringmanipulation.StringManipulation;
 import com.mycompany.ams.features.PathFinder.GetFilePath;
+import java.awt.Frame;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.BufferedReader;
@@ -81,15 +82,16 @@ public class TenantLogin extends javax.swing.JFrame {
         tenantRoomNo.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jLabel2.setText("room no.");
+        jLabel2.setText("room no:");
 
         jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jLabel4.setText("password");
+        jLabel4.setText("password:");
 
         jButton1.setBackground(new java.awt.Color(208, 49, 49));
         jButton1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("SIGN IN");
+        jButton1.setBorder(null);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -100,6 +102,7 @@ public class TenantLogin extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("CANCEL");
+        jButton2.setBorder(null);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -245,14 +248,14 @@ public class TenantLogin extends javax.swing.JFrame {
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainBackgroundLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(mainBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 410));
+        getContentPane().add(mainBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 400));
 
         pack();
         setLocationRelativeTo(null);
@@ -276,10 +279,20 @@ public class TenantLogin extends javax.swing.JFrame {
         } else if (!currentNode.getPassword().equals(password)) {
             JOptionPane.showMessageDialog(null, "You entered an incorrect password.");
         } else {
-            JOptionPane.showMessageDialog(null, "Welcome!");
+            Frame[] landingPages = LandingPage.getFrames();
+            for (Frame landingPage : landingPages) {
+                landingPage.dispose();
+            }
+
+            TenantsDashboard tenantsDashboard = new TenantsDashboard(roomNo);
+            tenantsDashboard.setVisible(true);
+            dispose();
 
         }
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
+
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         dispose();

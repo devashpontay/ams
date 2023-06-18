@@ -37,7 +37,6 @@ public class AdminLogin extends javax.swing.JFrame {
 
         jTextField1.addKeyListener(new UsernameFieldKeyListener());
         jPasswordField1.addKeyListener(new PasswordFieldKeyListener());
-        System.out.println(strManipulate.encrypt("admin:1234:false"));
     }
 
     /**

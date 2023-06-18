@@ -358,11 +358,13 @@ public class EditingForm extends javax.swing.JFrame {
             while((line = reader.readLine()) != null) {
                 line = strManipulate.decrypt(line);
                 String[] data = line.split("/");
-                linkedList.add(data[0], data[1], data[2], data[3], Integer.parseInt(data[4]), Integer.parseInt(data[5]), Integer.parseInt(data[6]), Integer.parseInt(data[7]));    
+                linkedList.add(data[0], data[1], data[2], data[3], Integer.parseInt(data[4]), Integer.parseInt(data[5]), Integer.parseInt(data[6]), Integer.parseInt(data[7]), data[8]);    
             }
             reader.close();
         }catch(IOException e) {
         }
+        
+        linkedList.display();
         
         Node currentNode = linkedList.head;
         while((currentNode != null) && !(currentNode.getIdNo().equals(selectedTenantIdNo))) {

@@ -269,7 +269,7 @@ public class TenantLogin extends javax.swing.JFrame {
             currentNode = currentNode.next;
         }
 
-        if (roomNo < 101 && roomNo > 310 && currentNode == null) {
+        if (roomNo < 101 || roomNo > 310) {
             JOptionPane.showMessageDialog(null, "The room you entered does not exist.");
         } else if (currentNode == null) {
             JOptionPane.showMessageDialog(null, "The room you entered is not occcupied.");

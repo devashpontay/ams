@@ -7,6 +7,7 @@ package com.mycompany.ams.features;
 import com.mycompany.ams.features.data_struct.MyLinkedList;
 import com.mycompany.ams.features.data_struct.Node;
 import com.mycompany.ams.features.stringmanipulation.StringManipulation;
+import com.mycompany.ams.features.PathFinder.GetFilePath;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.BufferedReader;
@@ -71,7 +72,7 @@ public class TenantLogin extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ashley Pontay\\Downloads\\main-img-logn.png")); // NOI18N
+        jLabel3.setIcon(GetFilePath.getFilePath("main-img-logn"));
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel1.setText(" SIGN IN");
@@ -268,7 +269,7 @@ public class TenantLogin extends javax.swing.JFrame {
             currentNode = currentNode.next;
         }
 
-        if (roomNo < 101 && roomNo > 310) {
+        if (roomNo < 101 && roomNo > 310 && currentNode == null) {
             JOptionPane.showMessageDialog(null, "The room you entered does not exist.");
         } else if (currentNode == null) {
             JOptionPane.showMessageDialog(null, "The room you entered is not occcupied.");

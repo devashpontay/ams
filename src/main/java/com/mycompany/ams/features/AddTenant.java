@@ -302,17 +302,17 @@ public class AddTenant extends javax.swing.JFrame {
             BufferedWriter writer = new BufferedWriter(fileWriter);
 
             if (floorNo.getSelectedItem().equals("1")) {
-                String data = randomIdNo + "/" + fullName + "/" + contactNumber + "/" + email + "/" + "0" + "/" + "8000" + "/" + floorNo.getSelectedItem() + "/" + roomNum.getSelectedItem();
+                String data = randomIdNo + "/" + fullName + "/" + contactNumber + "/" + email + "/" + "0" + "/" + "8000" + "/" + floorNo.getSelectedItem() + "/" + roomNum.getSelectedItem() + "/" + getLastName(fullName) + "@" + roomNum.getSelectedItem();
                 String encryptedData = strManipulate.encrypt(data);
                 writer.write(encryptedData);
                 writer.newLine();
             } else if (floorNo.getSelectedItem().equals("2")) {
-                String data = randomIdNo + "/" + fullName + "/" + contactNumber + "/" + email + "/" + "0" + "/" + "11000" + "/" + floorNo.getSelectedItem() + "/" + roomNum.getSelectedItem();
+                String data = randomIdNo + "/" + fullName + "/" + contactNumber + "/" + email + "/" + "0" + "/" + "8000" + "/" + floorNo.getSelectedItem() + "/" + roomNum.getSelectedItem() + "/" + getLastName(fullName) + "@" + roomNum.getSelectedItem();
                 String encryptedData = strManipulate.encrypt(data);
                 writer.write(encryptedData);
                 writer.newLine();
             } else {
-                String data = randomIdNo + "/" + fullName + "/" + contactNumber + "/" + email + "/" + "0" + "/" + "15000" + "/" + floorNo.getSelectedItem() + "/" + roomNum.getSelectedItem();
+                String data = randomIdNo + "/" + fullName + "/" + contactNumber + "/" + email + "/" + "0" + "/" + "8000" + "/" + floorNo.getSelectedItem() + "/" + roomNum.getSelectedItem() + "/" + getLastName(fullName) + "@" + roomNum.getSelectedItem();
                 String encryptedData = strManipulate.encrypt(data);
                 writer.write(encryptedData);
                 writer.newLine();
@@ -329,6 +329,12 @@ public class AddTenant extends javax.swing.JFrame {
             // Handle any exceptions that occur during file writing
             JOptionPane.showMessageDialog(null, "Failed to save tenant details!");
         }
+    }
+
+    public String getLastName(String data) {
+        String[] parts = data.split(" ");
+        String lastname = parts[parts.length - 1];
+        return lastname.toUpperCase();
     }
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

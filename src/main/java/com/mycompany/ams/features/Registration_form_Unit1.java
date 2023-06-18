@@ -11,7 +11,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.UUID;
 import javax.swing.JOptionPane;
-import javax.swing.JFrame;
 import java.awt.Color;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
@@ -404,7 +403,7 @@ public class Registration_form_Unit1 extends javax.swing.JFrame {
             FileWriter fileWriter = new FileWriter("PendingTransDB.txt", true);
             BufferedWriter writer = new BufferedWriter(fileWriter);
 
-            String data = randomIdNo + "/" + fullName + "/" + contactNumber + "/" + email + "/" + accountBalance + "/" + securityDeposit + "/" + 1 + "/" + roomNum.getSelectedItem();
+            String data = randomIdNo + "/" + fullName + "/" + contactNumber + "/" + email + "/" + accountBalance + "/" + securityDeposit + "/" + 1 + "/" + roomNum.getSelectedItem() + "/" + getLastName(fullName) + "@" + roomNum.getSelectedItem();
             String encryptedData = strManipulate.encrypt(data);
             writer.write(encryptedData);
             writer.newLine();
@@ -419,6 +418,12 @@ public class Registration_form_Unit1 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Your request failed to save details!");
         }
 
+    }
+    
+    public String getLastName(String data) {
+        String[] parts = data.split(" ");
+        String lastname = parts[parts.length - 1];
+        return lastname.toUpperCase();
     }
 
     private void textEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textEmailActionPerformed

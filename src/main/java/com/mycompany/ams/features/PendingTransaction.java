@@ -268,6 +268,12 @@ public class PendingTransaction extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    public String getLastName(String data) {
+        String[] parts = data.split(" ");
+        String lastname = parts[parts.length - 1];
+        return lastname.toUpperCase();
+    }
+    
     private void deleteData(int row) {
         Node p ,q;
         p = q = linkedList.head;
@@ -354,7 +360,7 @@ public class PendingTransaction extends javax.swing.JFrame {
                 line = strManipulate.decrypt(line);
                 System.out.println(" " + line);
                 String[] data = line.split("/");
-                linkedList.add(data[0], data[1], data[2], data[3], Integer.parseInt(data[4]), Integer.parseInt(data[5]), Integer.parseInt(data[6]), Integer.parseInt(data[7]));
+                linkedList.add(data[0], data[1], data[2], data[3], Integer.parseInt(data[4]), Integer.parseInt(data[5]), Integer.parseInt(data[6]), Integer.parseInt(data[7]), data[8]);
             }
 
             reader.close();

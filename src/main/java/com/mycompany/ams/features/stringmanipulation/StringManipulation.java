@@ -20,9 +20,6 @@ public class StringManipulation {
             encryptedData += c += key;
         }
         
-        String admin = "admin:1234:false";
-        
-        
         return encryptedData;
     }
 

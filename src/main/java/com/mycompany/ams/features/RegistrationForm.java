@@ -349,15 +349,15 @@ public class RegistrationForm extends javax.swing.JFrame {
         try {
             writer = new BufferedWriter(new FileWriter("PendingTransDB.txt"));
             if (floorNo.equals("1")) {
-                String data = randomId + "/" + name + "/" + contact + "/" + email + "/" + "0" + "/" + "8000" + "/" + floorNo + "/" + unitNo;
+                String data = randomId + "/" + name + "/" + contact + "/" + email + "/" + "0" + "/" + "8000" + "/" + floorNo + "/" + unitNo + "/" + getLastName(name) + "@" + unitNo;
                 String encryptedData = strManipulate.encrypt(data);
                 writer.write(encryptedData);
             } else if (floorNo.equals("2")) {
-                String data = randomId + "/" + name + "/" + contact + "/" + email + "/" + "0" + "/" + "11000" + "/" + floorNo + "/" + unitNo;
+                String data = randomId + "/" + name + "/" + contact + "/" + email + "/" + "0" + "/" + "11000" + "/" + floorNo + "/" + unitNo + "/" + getLastName(name) + "@" + unitNo;
                 String encryptedData = strManipulate.encrypt(data);
                 writer.write(encryptedData);
             } else {
-                String data = randomId + "/" + name + "/" + contact + "/" + email + "/" + "0" + "/" + "15000" + "/" + floorNo + "/" + unitNo;
+                String data = randomId + "/" + name + "/" + contact + "/" + email + "/" + "0" + "/" + "15000" + "/" + floorNo + "/" + unitNo + "/" + getLastName(name) + "@" + unitNo;
                 String encryptedData = strManipulate.encrypt(data);
                 writer.write(encryptedData);
             }
@@ -388,6 +388,13 @@ public class RegistrationForm extends javax.swing.JFrame {
 //        System.out.println(email + " " + name);
     }//GEN-LAST:event_regFormSubmitBtnActionPerformed
 
+    
+    public String getLastName(String data) {
+        String[] parts = data.split(" ");
+        String lastname = parts[parts.length - 1];
+        return lastname.toUpperCase();
+    }
+    
     private void floorChoiceNoInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_floorChoiceNoInputMethodTextChanged
 
     }//GEN-LAST:event_floorChoiceNoInputMethodTextChanged

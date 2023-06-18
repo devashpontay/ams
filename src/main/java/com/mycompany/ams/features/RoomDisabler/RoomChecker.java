@@ -8,7 +8,6 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import javax.swing.table.DefaultTableModel;
 import com.mycompany.ams.features.stringmanipulation.StringManipulation;
 
 /**

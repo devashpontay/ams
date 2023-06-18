@@ -17,9 +17,10 @@ public class Node {
     int securityDeposit;
     int floorNo;
     int unitNo;
+    String password;
     public Node next;
     
-    public Node(String idNo, String fullname, String contactNo, String email, int balance, int securityDeposit, int floorNo, int unitNo) {
+    public Node(String idNo, String fullname, String contactNo, String email, int balance, int securityDeposit, int floorNo, int unitNo, String password) {
         this.idNo = idNo;
         this.fullname = fullname;
         this.contactNo = contactNo;
@@ -28,6 +29,7 @@ public class Node {
         this.securityDeposit = securityDeposit;
         this.floorNo = floorNo;
         this.unitNo = unitNo;
+        this.password = password;
         this.next = null;
     }
 
@@ -93,6 +95,14 @@ public class Node {
 
     public void setUnitNo(int unitNo) {
         this.unitNo = unitNo;
+    }
+    
+    public String getPassword() {
+        return password;
+    }
+    
+    public void setPassword(String password) {
+        this.password = password;
     }
     
 }

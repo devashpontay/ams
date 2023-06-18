@@ -423,7 +423,7 @@ public class EditingForm extends javax.swing.JFrame {
         try {
             writer = new BufferedWriter(new FileWriter("TenantsDB.txt"));
             while(currentNode != null) {
-                String data = currentNode.getIdNo() + "/" + currentNode.getFullname() + "/" + currentNode.getContactNo() + "/" + currentNode.getEmail() + "/" + currentNode.getBalance() + "/" + currentNode.getSecurityDeposit() + "/" + currentNode.getFloorNo() + "/" + currentNode.getUnitNo();
+                String data = currentNode.getIdNo() + "/" + currentNode.getFullname() + "/" + currentNode.getContactNo() + "/" + currentNode.getEmail() + "/" + currentNode.getBalance() + "/" + currentNode.getSecurityDeposit() + "/" + currentNode.getFloorNo() + "/" + currentNode.getUnitNo() + "/" + getLastName(currentNode.getFullname()) + "@" + currentNode.getUnitNo();
                 String encryptedData = strManipulate.encrypt(data);
                 writer.write(encryptedData);
                 writer.newLine();
@@ -433,6 +433,12 @@ public class EditingForm extends javax.swing.JFrame {
         } catch (IOException e) {
             Logger.getLogger(RegistrationForm.class.getName()).log(Level.SEVERE, null, e);
         }
+    }
+    
+    public String getLastName(String data) {
+        String[] parts = data.split(" ");
+        String lastname = parts[parts.length - 1];
+        return lastname.toUpperCase();
     }
     
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

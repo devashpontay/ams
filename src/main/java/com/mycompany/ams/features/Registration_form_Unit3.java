@@ -105,6 +105,7 @@ public class Registration_form_Unit3 extends javax.swing.JFrame {
         roomNum = new javax.swing.JComboBox<>();
         jLabel21 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -140,7 +141,7 @@ public class Registration_form_Unit3 extends javax.swing.JFrame {
         jLabel10.setForeground(new java.awt.Color(36, 37, 35));
         jLabel10.setText("P15,000");
 
-        jLabel11.setIcon(new javax.swing.ImageIcon("D:\\Nelson\\Programming\\Programming Language\\ams\\src\\main\\java\\com\\mycompany\\ams\\resources\\checkout-rating-3.png")); // NOI18N
+        jLabel11.setIcon(GetFilePath.getFilePath("checkout-rating-3")); // NOI18N
 
         jLabel12.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(208, 49, 49));
@@ -215,6 +216,13 @@ public class Registration_form_Unit3 extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setIcon(GetFilePath.getFilePath("back-icon"));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -264,7 +272,9 @@ public class Registration_form_Unit3 extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                     .addComponent(roomNum, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel17)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jButton2)
+                                        .addComponent(jLabel17))
                                     .addGap(8, 8, 8))))))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
@@ -272,8 +282,10 @@ public class Registration_form_Unit3 extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(jLabel7)
-                .addGap(6, 6, 6)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jButton2))
+                .addGap(3, 3, 3)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(61, 61, 61)
@@ -406,15 +418,25 @@ public class Registration_form_Unit3 extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         saveTenantInfo();
 
-        // Get the current window
-        JFrame currentWindow = this;
+        Unit3 unit3 = new Unit3();
 
-        // Set the current window as the default
-        currentWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        // Make the current JFrame invisible
+        this.setVisible(false);
 
-        // Back to the past window
-        currentWindow.dispose();
+        // Make the previous JFrame visible
+        unit3.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // Get the previous JFrame
+        Unit1 unit1 = new Unit1();
+
+        // Make the current JFrame invisible
+        this.setVisible(false);
+
+        // Make the previous JFrame visible
+        unit1.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
    
     /**
      * @param args the command line arguments
@@ -454,6 +476,7 @@ public class Registration_form_Unit3 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField contact;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

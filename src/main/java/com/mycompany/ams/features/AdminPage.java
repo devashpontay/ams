@@ -10,6 +10,8 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import java.awt.Frame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -77,7 +79,7 @@ public class AdminPage extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        smallLogoImg = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -166,9 +168,14 @@ public class AdminPage extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jLabel15.setText("management.");
 
-        smallLogoImg.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        smallLogoImg.setIcon(GetFilePath.getFilePath("small-admin-logo"));
-        smallLogoImg.setText("Admin Account");
+        jButton1.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jButton1.setIcon(GetFilePath.getFilePath("small-admin-logo"));
+        jButton1.setText("Admin Account");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -177,9 +184,7 @@ public class AdminPage extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addComponent(systemLogo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(smallLogoImg)
-                .addGap(58, 58, 58))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(88, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,34 +202,40 @@ public class AdminPage extends javax.swing.JFrame {
                             .addGap(113, 113, 113))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel12)
-                                    .addComponent(jLabel13)
-                                    .addComponent(jLabel14)
-                                    .addComponent(jLabel15))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(adminPageMainImg)
-                                .addGap(47, 47, 47))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel7)
                                     .addComponent(jLabel5))
-                                .addGap(650, 650, 650))))))
+                                .addGap(650, 650, 650))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jButton1)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel8)
+                                            .addComponent(jLabel9)
+                                            .addComponent(jLabel10)
+                                            .addComponent(jLabel11)
+                                            .addComponent(jLabel12)
+                                            .addComponent(jLabel13)
+                                            .addComponent(jLabel14)
+                                            .addComponent(jLabel15))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(adminPageMainImg)))
+                                .addGap(47, 47, 47))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(systemLogo)
-                    .addComponent(smallLogoImg))
-                .addGap(16, 16, 16)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(systemLogo))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addComponent(jButton1)))
+                .addGap(28, 28, 28)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -269,49 +280,30 @@ public class AdminPage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tenantsListBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tenantsListBtnActionPerformed
-        TenantsList tnantsList = new TenantsList();
-        tnantsList.show();
-        addTenantBtn.setEnabled(false);
-        tenantsListBtn.setEnabled(false);
-        unitsListBtn.setEnabled(false);
-        pendingBtn.setEnabled(false);
+        // Get the previous JFrame
+        TenantsList list = new TenantsList();
+
+        // Make the current JFrame invisible
+        this.setVisible(false);
+
+        // Make the previous JFrame visible
+        list.setVisible(true);
 
          
     }//GEN-LAST:event_tenantsListBtnActionPerformed
 
     private void addTenantBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTenantBtnActionPerformed
-        
-        JFrame currentWindow = this;
+        // Get the previous JFrame
+        AddTenant add = new AddTenant();
 
-        // Gray out the current window
-        currentWindow.setBackground(new Color(128, 128, 128));
-        currentWindow.setEnabled(false);
+        // Make the current JFrame invisible
+        this.setVisible(false);
 
-        // Open the new window
-        AddTenant addTenant = new AddTenant();
-        addTenant.setVisible(true);
-
-        // Add a listener to the new window to check if it is closed
-        addTenant.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                // Re-enable the current window
-                currentWindow.setEnabled(true);
-                currentWindow.setBackground(null);
-
-                // Set the current window as the default
-                addTenant.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-            }
-        });
+        // Make the previous JFrame visible
+        add.setVisible(true);
     }//GEN-LAST:event_addTenantBtnActionPerformed
 
     private void unitsListBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unitsListBtnActionPerformed
-        DisplayUnits displayUnits = new DisplayUnits();
-        displayUnits.show();
-        dispose();
-    }//GEN-LAST:event_unitsListBtnActionPerformed
-
-    private void pendingBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pendingBtnActionPerformed
         JFrame currentWindow = this;
 
         // Gray out the current window
@@ -319,11 +311,11 @@ public class AdminPage extends javax.swing.JFrame {
         currentWindow.setEnabled(false);
 
         // Open the new window
-        PendingTransaction pendingTransaction = new PendingTransaction();
-        pendingTransaction.setVisible(true);
+        DisplayUnits display = new DisplayUnits();
+        display.setVisible(true);
 
         // Add a listener to the new window to check if it is closed
-        pendingTransaction.addWindowListener(new WindowAdapter() {
+        display.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
                 // Re-enable the current window
@@ -331,10 +323,30 @@ public class AdminPage extends javax.swing.JFrame {
                 currentWindow.setBackground(null);
 
                 // Set the current window as the default
-                pendingTransaction.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                display.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             }
         });
+    }//GEN-LAST:event_unitsListBtnActionPerformed
+
+    private void pendingBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pendingBtnActionPerformed
+        // Get the previous JFrame
+        PendingTransaction tran = new PendingTransaction();
+
+        // Make the current JFrame invisible
+        this.setVisible(false);
+
+        // Make the previous JFrame visible
+        tran.setVisible(true);
     }//GEN-LAST:event_pendingBtnActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int result = JOptionPane.showConfirmDialog(this, "Are you sure you want to sign out?", "Sign Out", JOptionPane.YES_NO_OPTION);
+        if (result == JOptionPane.YES_OPTION) {
+            LandingPage landingPage = new LandingPage();
+            landingPage.setVisible(true);
+            dispose();
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -394,6 +406,7 @@ public class AdminPage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private static javax.swing.JButton addTenantBtn;
     private javax.swing.JLabel adminPageMainImg;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -408,7 +421,6 @@ public class AdminPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private static javax.swing.JButton pendingBtn;
-    private javax.swing.JLabel smallLogoImg;
     private javax.swing.JLabel systemLogo;
     private static javax.swing.JButton tenantsListBtn;
     private static javax.swing.JButton unitsListBtn;

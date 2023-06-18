@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.ams.features;
-
+import com.mycompany.ams.features.PathFinder.GetFilePath;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import com.mycompany.ams.features.data_struct.MyLinkedList;
@@ -61,7 +61,10 @@ public class PendingTransaction extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
+        jLabel3.setIcon(GetFilePath.getFilePath("logo"));
+
         jButton3.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        jButton3.setIcon(GetFilePath.getFilePath("small-admin-logo"));
         jButton3.setText("Admin Account");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,7 +93,7 @@ public class PendingTransaction extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(32, 32, 32)
                         .addComponent(jButton3)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
@@ -104,6 +107,7 @@ public class PendingTransaction extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(244, 245, 244));
         jButton1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(221, 48, 49));
+        jButton1.setIcon(GetFilePath.getFilePath("accept-icon"));
         jButton1.setText(" Accept");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,6 +118,7 @@ public class PendingTransaction extends javax.swing.JFrame {
         jButton2.setBackground(new java.awt.Color(244, 245, 244));
         jButton2.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jButton2.setForeground(new java.awt.Color(221, 48, 49));
+        jButton2.setIcon(GetFilePath.getFilePath("decline-icon"));
         jButton2.setText(" Decline");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

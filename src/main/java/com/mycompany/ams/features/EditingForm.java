@@ -27,7 +27,7 @@ public class EditingForm extends javax.swing.JFrame {
     StringManipulation strManipulate = new StringManipulation();
     /**
      * Creates new form EditingForm
-     * @param idNo
+     * 
      */
     public EditingForm() {
         initComponents();
@@ -394,7 +394,8 @@ public class EditingForm extends javax.swing.JFrame {
         currentNode.setBalance(Integer.parseInt(clientBalance.getText()));
         currentNode.setSecurityDeposit(Integer.parseInt(clientDeposit.getText()));
         currentNode.setFloorNo(Integer.parseInt(clientFloor.getText()));
-        currentNode.setUnitNo(Integer.parseInt(clientRoom.getText()));      
+        currentNode.setUnitNo(Integer.parseInt(clientRoom.getText()));
+//        currentNode.setPassword(currentNode.getPassword());
         saveToDB();
     }
     
@@ -423,7 +424,7 @@ public class EditingForm extends javax.swing.JFrame {
         try {
             writer = new BufferedWriter(new FileWriter("TenantsDB.txt"));
             while(currentNode != null) {
-                String data = currentNode.getIdNo() + "/" + currentNode.getFullname() + "/" + currentNode.getContactNo() + "/" + currentNode.getEmail() + "/" + currentNode.getBalance() + "/" + currentNode.getSecurityDeposit() + "/" + currentNode.getFloorNo() + "/" + currentNode.getUnitNo() + "/" + getLastName(currentNode.getFullname()) + "@" + currentNode.getUnitNo();
+                String data = currentNode.getIdNo() + "/" + currentNode.getFullname() + "/" + currentNode.getContactNo() + "/" + currentNode.getEmail() + "/" + currentNode.getBalance() + "/" + currentNode.getSecurityDeposit() + "/" + currentNode.getFloorNo() + "/" + currentNode.getUnitNo() + "/" + currentNode.getPassword();
                 String encryptedData = strManipulate.encrypt(data);
                 writer.write(encryptedData);
                 writer.newLine();

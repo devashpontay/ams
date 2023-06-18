@@ -16,13 +16,14 @@ import java.util.UUID;
 import javax.swing.JOptionPane;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
+import com.mycompany.ams.features.stringmanipulation.StringManipulation;
 
 /**
  *
  * @author finns
  */
 public class Registration_form_Unit3 extends javax.swing.JFrame {
-
+    StringManipulation strManipulate = new StringManipulation();
     /**
      * Creates new form Registration_form_Unit3
      */
@@ -384,16 +385,16 @@ public class Registration_form_Unit3 extends javax.swing.JFrame {
         String contactNumber = contact.getText();
         String email = textEmail.getText();
         String accountBalance = "0";
-        String securityDeposit = "30000";
+        String securityDeposit = "15000";
 
         try {
             FileWriter fileWriter = new FileWriter("PendingTransDB.txt", true);
             BufferedWriter writer = new BufferedWriter(fileWriter);
 
-            // Append the tenant details to the file
-            writer.write(randomIdNo + "/" + fullName + "/" + contactNumber + "/" + email + "/" + accountBalance + "/" + securityDeposit + "/" + 3 + "/" + roomNum.getSelectedItem() + "\n");
-
-            // Close the buffered writer
+            String data = randomIdNo + "/" + fullName + "/" + contactNumber + "/" + email + "/" + accountBalance + "/" + securityDeposit + "/" + "2" + "/" + roomNum.getSelectedItem();
+            String encryptedData = strManipulate.encrypt(data);
+            writer.write(encryptedData);
+            writer.newLine();
             writer.close();
 
             // Display a success message

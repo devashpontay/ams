@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import com.mycompany.ams.features.RoomDisabler.RoomChecker;
+import com.mycompany.ams.features.stringmanipulation.StringManipulation;
 
 /**
  *
@@ -22,11 +24,24 @@ import java.util.logging.Logger;
  */
 public class RegistrationForm extends javax.swing.JFrame {
 
+    StringManipulation strManipulate = new StringManipulation();
+
     /**
      * Creates new form RegistrationForm
      */
     public RegistrationForm() {
         initComponents();
+        initComboBox();
+    }
+
+    private void initComboBox() {
+        RoomChecker roomChecker = new RoomChecker();
+        ArrayList<String> occupiedRoom = roomChecker.getOccupiedRoomFloorOne();
+
+        for (int i = 0; i < occupiedRoom.size(); i++) {
+            roomNum.removeItem(occupiedRoom.get(i));
+        }
+
     }
 
     /**
@@ -50,7 +65,7 @@ public class RegistrationForm extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         floorChoiceNo = new javax.swing.JComboBox<>();
-        unitChoiceNo = new javax.swing.JComboBox<>();
+        roomNum = new javax.swing.JComboBox<>();
         regFormSubmitBtn = new javax.swing.JButton();
         regFormCancelBtn = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
@@ -123,11 +138,11 @@ public class RegistrationForm extends javax.swing.JFrame {
             }
         });
 
-        unitChoiceNo.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        unitChoiceNo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
-        unitChoiceNo.addActionListener(new java.awt.event.ActionListener() {
+        roomNum.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
+        roomNum.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
+        roomNum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                unitChoiceNoActionPerformed(evt);
+                roomNumActionPerformed(evt);
             }
         });
 
@@ -201,7 +216,7 @@ public class RegistrationForm extends javax.swing.JFrame {
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addComponent(jLabel7)
                                         .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(unitChoiceNo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(roomNum, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(regFormSubmitBtn)
@@ -237,7 +252,7 @@ public class RegistrationForm extends javax.swing.JFrame {
                 .addGap(4, 4, 4)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(floorChoiceNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(unitChoiceNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(roomNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(1, 1, 1)
                 .addComponent(jButton1)
                 .addGap(18, 18, 18)
@@ -267,6 +282,7 @@ public class RegistrationForm extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -274,50 +290,50 @@ public class RegistrationForm extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         if (floorChoiceNo.getSelectedItem().equals("1")) {
-            unitChoiceNo.removeAllItems();
+            roomNum.removeAllItems();
             for (int i = 101; i <= 110; i++) {
                 System.out.println(i);
                 String tempItem = Integer.toString(i);
-                unitChoiceNo.addItem(tempItem);
+                roomNum.addItem(tempItem);
             }
             RoomChecker roomChecker = new RoomChecker();
             ArrayList<String> occupiedRoom = roomChecker.getOccupiedRoomFloorOne();
 
             for (int i = 0; i < occupiedRoom.size(); i++) {
-                unitChoiceNo.removeItem(occupiedRoom.get(i));
+                roomNum.removeItem(occupiedRoom.get(i));
             }
         } else if (floorChoiceNo.getSelectedItem().equals("2")) {
-            unitChoiceNo.removeAllItems();
+            roomNum.removeAllItems();
             for (int i = 201; i <= 210; i++) {
                 String tempItem = Integer.toString(i);
-                unitChoiceNo.addItem(tempItem);
+                roomNum.addItem(tempItem);
             }
             RoomChecker roomChecker = new RoomChecker();
             ArrayList<String> occupiedRoom = roomChecker.getOccupiedRoomFloorTwo();
 
             for (int i = 0; i < occupiedRoom.size(); i++) {
-                unitChoiceNo.removeItem(occupiedRoom.get(i));
+                roomNum.removeItem(occupiedRoom.get(i));
             }
         } else {
-            unitChoiceNo.removeAllItems();
+            roomNum.removeAllItems();
             for (int i = 301; i <= 310; i++) {
                 String tempItem = Integer.toString(i);
-                unitChoiceNo.addItem(tempItem);
+                roomNum.addItem(tempItem);
             }
             RoomChecker roomChecker = new RoomChecker();
             ArrayList<String> occupiedRoom = roomChecker.getOccupiedRoomFloorThree();
 
             for (int i = 0; i < occupiedRoom.size(); i++) {
-                unitChoiceNo.removeItem(occupiedRoom.get(i));
+                roomNum.removeItem(occupiedRoom.get(i));
             }
         }
 
 
     }//GEN-LAST:event_floorChoiceNoActionPerformed
 
-    private void unitChoiceNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unitChoiceNoActionPerformed
+    private void roomNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roomNumActionPerformed
 
-    }//GEN-LAST:event_unitChoiceNoActionPerformed
+    }//GEN-LAST:event_roomNumActionPerformed
 
     private void regFormSubmitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regFormSubmitBtnActionPerformed
         UUID uuid = UUID.randomUUID();
@@ -327,13 +343,26 @@ public class RegistrationForm extends javax.swing.JFrame {
         String email = clientEmail.getText();
         String contact = clientContactNo.getText();
         String floorNo = floorChoiceNo.getSelectedItem().toString();
-        String unitNo = unitChoiceNo.getSelectedItem().toString();
+        String unitNo = roomNum.getSelectedItem().toString();
 
         BufferedWriter writer;
         try {
-            writer = new BufferedWriter(new FileWriter("regForm.txt"));
-            writer.write(randomId + "@" + name + "@" + email + "@" + contact + "@" + floorNo + "@" + unitNo + "@" + "0" + "@" + "35999");
+            writer = new BufferedWriter(new FileWriter("PendingTransDB.txt"));
+            if (floorNo.equals("1")) {
+                String data = randomId + "/" + name + "/" + contact + "/" + email + "/" + "0" + "/" + "8000" + "/" + floorNo + "/" + unitNo;
+                String encryptedData = strManipulate.encrypt(data);
+                writer.write(encryptedData);
+            } else if (floorNo.equals("2")) {
+                String data = randomId + "/" + name + "/" + contact + "/" + email + "/" + "0" + "/" + "11000" + "/" + floorNo + "/" + unitNo;
+                String encryptedData = strManipulate.encrypt(data);
+                writer.write(encryptedData);
+            } else {
+                String data = randomId + "/" + name + "/" + contact + "/" + email + "/" + "0" + "/" + "15000" + "/" + floorNo + "/" + unitNo;
+                String encryptedData = strManipulate.encrypt(data);
+                writer.write(encryptedData);
+            }
             writer.close();
+
         } catch (IOException e) {
             Logger.getLogger(RegistrationForm.class.getName()).log(Level.SEVERE, null, e);
         }
@@ -342,7 +371,6 @@ public class RegistrationForm extends javax.swing.JFrame {
         clientEmail.setText(null);
         clientContactNo.setText(null);
         floorChoiceNo.setSelectedItem("1");
-        floorChoiceNo.setSelectedItem("1");
 
         Object[] options = {"Continue", "Exit"};
 
@@ -350,7 +378,9 @@ public class RegistrationForm extends javax.swing.JFrame {
                 JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 
         if (choice == 0) {
-            JOptionPane.showMessageDialog(null, "You clicked Continue.");
+            DisplayUnits display = new DisplayUnits();
+            display.show();
+            dispose();
         } else if (choice == 1) {
             System.exit(0);
         }
@@ -376,7 +406,7 @@ public class RegistrationForm extends javax.swing.JFrame {
     }//GEN-LAST:event_clientContactNoActionPerformed
 
     private void regFormCancelBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regFormCancelBtnActionPerformed
-        LandingPage display = new LandingPage();
+        DisplayUnits display = new DisplayUnits();
 
         // Make the current JFrame invisible
         this.setVisible(false);
@@ -451,6 +481,6 @@ public class RegistrationForm extends javax.swing.JFrame {
     private javax.swing.JButton regFormCancelBtn;
     private javax.swing.JLabel regFormLabel;
     private javax.swing.JButton regFormSubmitBtn;
-    private javax.swing.JComboBox<String> unitChoiceNo;
+    private javax.swing.JComboBox<String> roomNum;
     // End of variables declaration//GEN-END:variables
 }

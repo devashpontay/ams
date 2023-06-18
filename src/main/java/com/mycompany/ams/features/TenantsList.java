@@ -8,11 +8,10 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import com.mycompany.ams.features.PathFinder.GetFilePath;
-
+import com.mycompany.ams.features.stringmanipulation.StringManipulation;
 
 /**
  *
@@ -21,6 +20,7 @@ import com.mycompany.ams.features.PathFinder.GetFilePath;
 
 
 public class TenantsList extends javax.swing.JFrame {
+    StringManipulation strManipulate = new StringManipulation();
     
     public TenantsList() {
         initComponents();
@@ -149,7 +149,6 @@ public class TenantsList extends javax.swing.JFrame {
         }.getIcon());
 
         jButton1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon("D:\\Nelson\\Programming\\Programming Language\\ams\\src\\main\\java\\com\\mycompany\\ams\\resources\\small-admin-logo.png")); // NOI18N
         jButton1.setText("Admin Account");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -272,7 +271,8 @@ public class TenantsList extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void addBtnImgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnImgActionPerformed
-        // TODO add your handling code here:
+        AddTenant addTenant = new AddTenant();
+        addTenant.setVisible(true);
     }//GEN-LAST:event_addBtnImgActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -293,6 +293,7 @@ public class TenantsList extends javax.swing.JFrame {
             int index = 1;
             int ctr = 0;
             while((line = reader.readLine()) != null) {
+                line = strManipulate.decrypt(line);
                 String[] data = line.split("/");
                 tenantsIdNo.add(data[0]);
                 Object[] rowData = {

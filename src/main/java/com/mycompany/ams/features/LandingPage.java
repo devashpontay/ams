@@ -5,13 +5,17 @@
 package com.mycompany.ams.features;
 
 import com.mycompany.ams.features.PathFinder.GetFilePath;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import com.mycompany.ams.features.stringmanipulation.StringManipulation;
 
 /**
  *
  * @author finns
  */
 public class LandingPage extends javax.swing.JFrame {
-
+    StringManipulation strManipulate = new StringManipulation();
     /**
      * Creates new form NewJFrame
      */
@@ -202,8 +206,31 @@ public class LandingPage extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        AdminLogin adminlgn = new AdminLogin();
-        adminlgn.show();
+
+
+        try {
+            FileReader fileReader = new FileReader("accounts.txt");
+            try (BufferedReader bufferedReader = new BufferedReader(fileReader)) {
+                String line;
+                while ((line = bufferedReader.readLine()) != null) {
+                    line = strManipulate.decrypt(line);
+                    String[] parts = line.split(":");
+                    String isActive = parts[2];
+                    if(isActive.equals("false")) {
+                        AdminLogin adminlgn = new AdminLogin();
+                        adminlgn.show();
+                    }else {
+                        AdminPage adminPage = new AdminPage();
+                        adminPage.show();
+                        dispose();
+                    }
+                }
+            }
+            fileReader.close();
+        } catch (IOException e) {
+        }
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

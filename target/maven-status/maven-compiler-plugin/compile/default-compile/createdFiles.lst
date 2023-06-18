@@ -111,6 +111,7 @@ com\mycompany\ams\features\DisplayUnits$1.class
 com\mycompany\ams\features\PathFinder\GetFilePath.class
 com\mycompany\ams\features\Unit1.class
 com\mycompany\ams\features\AddTenant$1.class
+com\mycompany\ams\features\stringmanipulation\StringManipulation.class
 com\mycompany\ams\features\Registration_form_Unit1$4.class
 com\mycompany\ams\features\AdminLogin$CancelButtonListener.class
 com\mycompany\ams\features\TenantsDashboard.class

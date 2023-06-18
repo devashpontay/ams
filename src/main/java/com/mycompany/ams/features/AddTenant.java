@@ -4,13 +4,13 @@
  */
 package com.mycompany.ams.features;
 
+import com.mycompany.ams.features.RoomDisabler.RoomChecker;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.UUID;
-import javax.swing.JButton;
-
-
+import com.mycompany.ams.features.stringmanipulation.StringManipulation;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
@@ -20,17 +20,17 @@ import javax.swing.JOptionPane;
  */
 public class AddTenant extends javax.swing.JFrame {
 
+    StringManipulation strManipulate = new StringManipulation();
+
     /**
      * Creates new form EditingForm
      */
     public AddTenant() {
         initComponents();
-
     }
 
     public AddTenant(String idNo) { // constructor that accepts an argument
         initComponents();
-        //this.newTenantIdNo = idNo;
     }
 
     /**
@@ -68,7 +68,7 @@ public class AddTenant extends javax.swing.JFrame {
         jTextFieldContactNo = new javax.swing.JTextField();
         jTextFieldEmail = new javax.swing.JTextField();
         floorNo = new javax.swing.JComboBox<>();
-        unitNo = new javax.swing.JComboBox<>();
+        roomNum = new javax.swing.JComboBox<>();
 
         jLabel10.setText("FIELD");
 
@@ -186,8 +186,8 @@ public class AddTenant extends javax.swing.JFrame {
             }
         });
 
-        unitNo.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        unitNo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
+        roomNum.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        roomNum.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
 
         javax.swing.GroupLayout layer2bgLayout = new javax.swing.GroupLayout(layer2bg);
         layer2bg.setLayout(layer2bgLayout);
@@ -217,7 +217,7 @@ public class AddTenant extends javax.swing.JFrame {
                                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel6)
                             .addComponent(jLabel7)
-                            .addComponent(unitNo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(roomNum, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(floorNo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(57, Short.MAX_VALUE))
         );
@@ -243,7 +243,7 @@ public class AddTenant extends javax.swing.JFrame {
                 .addGap(8, 8, 8)
                 .addGroup(layer2bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldContactNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(unitNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(roomNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -291,20 +291,32 @@ public class AddTenant extends javax.swing.JFrame {
 
     public void saveTenantInfo() {
         UUID uuid = UUID.randomUUID();
-        
+
         String randomIdNo = uuid.toString();
         String fullName = jTextFieldFullName.getText();
         String contactNumber = jTextFieldContactNo.getText();
         String email = jTextFieldEmail.getText();
-        String accountBalance = "0";
-        String securityDeposit = "34999";
 
         try {
             FileWriter fileWriter = new FileWriter("TenantsDB.txt", true);
             BufferedWriter writer = new BufferedWriter(fileWriter);
 
-            // Append the tenant details to the file
-            writer.write(randomIdNo + "/" + fullName + "/" + contactNumber + "/" + email + "/" + accountBalance + "/" + securityDeposit + "/" + floorNo.getSelectedItem() + "/" + unitNo.getSelectedItem() + "\n");
+            if (floorNo.getSelectedItem().equals("1")) {
+                String data = randomIdNo + "/" + fullName + "/" + contactNumber + "/" + email + "/" + "0" + "/" + "8000" + "/" + floorNo.getSelectedItem() + "/" + roomNum.getSelectedItem();
+                String encryptedData = strManipulate.encrypt(data);
+                writer.write(encryptedData);
+                writer.newLine();
+            } else if (floorNo.getSelectedItem().equals("2")) {
+                String data = randomIdNo + "/" + fullName + "/" + contactNumber + "/" + email + "/" + "0" + "/" + "11000" + "/" + floorNo.getSelectedItem() + "/" + roomNum.getSelectedItem();
+                String encryptedData = strManipulate.encrypt(data);
+                writer.write(encryptedData);
+                writer.newLine();
+            } else {
+                String data = randomIdNo + "/" + fullName + "/" + contactNumber + "/" + email + "/" + "0" + "/" + "15000" + "/" + floorNo.getSelectedItem() + "/" + roomNum.getSelectedItem();
+                String encryptedData = strManipulate.encrypt(data);
+                writer.write(encryptedData);
+                writer.newLine();
+            }
 
             // Close the buffered writer
             writer.close();
@@ -313,7 +325,6 @@ public class AddTenant extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Tenant added successfully!");
 
             // Clear the input fields after saving
-            
         } catch (IOException e) {
             // Handle any exceptions that occur during file writing
             JOptionPane.showMessageDialog(null, "Failed to save tenant details!");
@@ -340,37 +351,53 @@ public class AddTenant extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         saveTenantInfo();
-        JButton addTenantBtn = AdminPage.getAddTenantBtn();
-        addTenantBtn.setEnabled(true);
-        JButton tenantsListBtn = AdminPage.getTenantsListBtn();
-        tenantsListBtn.setEnabled(true);
-        JButton unitsListBtn = AdminPage.getUnitsListBtn();
-        unitsListBtn.setEnabled(true);
-        JButton pendingBtn = AdminPage.getPendingBtn();
-        pendingBtn.setEnabled(true);
-        dispose();
+
+        AdminPage adminPg = new AdminPage();
+
+        this.setVisible(false);
+
+        // Make the previous JFrame visible
+        adminPg.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void floorNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_floorNoActionPerformed
-        
+
         if (floorNo.getSelectedItem().equals("1")) {
-            unitNo.removeAllItems();
+            roomNum.removeAllItems();
             for (int i = 101; i <= 110; i++) {
                 System.out.println(i);
                 String tempItem = Integer.toString(i);
-                unitNo.addItem(tempItem);
+                roomNum.addItem(tempItem);
+            }
+            RoomChecker roomChecker = new RoomChecker();
+            ArrayList<String> occupiedRoom = roomChecker.getOccupiedRoomFloorOne();
+
+            for (int i = 0; i < occupiedRoom.size(); i++) {
+                roomNum.removeItem(occupiedRoom.get(i));
             }
         } else if (floorNo.getSelectedItem().equals("2")) {
-            unitNo.removeAllItems();
+            roomNum.removeAllItems();
             for (int i = 201; i <= 210; i++) {
                 String tempItem = Integer.toString(i);
-                unitNo.addItem(tempItem);
+                roomNum.addItem(tempItem);
+            }
+            RoomChecker roomChecker = new RoomChecker();
+            ArrayList<String> occupiedRoom = roomChecker.getOccupiedRoomFloorTwo();
+
+            for (int i = 0; i < occupiedRoom.size(); i++) {
+                roomNum.removeItem(occupiedRoom.get(i));
             }
         } else {
-            unitNo.removeAllItems();
+            roomNum.removeAllItems();
             for (int i = 301; i <= 310; i++) {
                 String tempItem = Integer.toString(i);
-                unitNo.addItem(tempItem);
+                roomNum.addItem(tempItem);
+            }
+            RoomChecker roomChecker = new RoomChecker();
+            ArrayList<String> occupiedRoom = roomChecker.getOccupiedRoomFloorThree();
+
+            for (int i = 0; i < occupiedRoom.size(); i++) {
+                roomNum.removeItem(occupiedRoom.get(i));
             }
         }
     }//GEN-LAST:event_floorNoActionPerformed
@@ -449,6 +476,6 @@ public class AddTenant extends javax.swing.JFrame {
     private javax.swing.JPanel layer2bg;
     private javax.swing.JLabel logo;
     private javax.swing.JTextField newInput;
-    private javax.swing.JComboBox<String> unitNo;
+    private javax.swing.JComboBox<String> roomNum;
     // End of variables declaration//GEN-END:variables
 }

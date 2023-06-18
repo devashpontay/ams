@@ -9,6 +9,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
+import com.mycompany.ams.features.stringmanipulation.StringManipulation;
 
 /**
  *
@@ -17,6 +18,7 @@ import javax.swing.table.DefaultTableModel;
 public class RoomChecker {
 
     public ArrayList<String> occupiedRoom = new ArrayList<>();
+    StringManipulation strManipulate = new StringManipulation();
 
     public ArrayList<String> getOccupiedRoomFloorOne() {
         BufferedReader reader;
@@ -24,6 +26,7 @@ public class RoomChecker {
             reader = new BufferedReader(new FileReader("TenantsDB.txt"));
             String line;
             while ((line = reader.readLine()) != null) {
+                line = strManipulate.decrypt(line);
                 String[] data = line.split("/");
                 if (data[6].equals("1")) {
                     occupiedRoom.add(data[7]);
@@ -43,6 +46,7 @@ public class RoomChecker {
             reader = new BufferedReader(new FileReader("TenantsDB.txt"));
             String line;
             while ((line = reader.readLine()) != null) {
+                line = strManipulate.decrypt(line);
                 String[] data = line.split("/");
                 if (data[6].equals("2")) {
                     occupiedRoom.add(data[7]);
@@ -62,6 +66,7 @@ public class RoomChecker {
             reader = new BufferedReader(new FileReader("TenantsDB.txt"));
             String line;
             while ((line = reader.readLine()) != null) {
+                line = strManipulate.decrypt(line);
                 String[] data = line.split("/");
                 if (data[6].equals("3")) {
                     occupiedRoom.add(data[7]);

@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import com.mycompany.ams.features.stringmanipulation.StringManipulation;
 
 /**
  *
@@ -24,6 +25,7 @@ import javax.swing.table.DefaultTableModel;
 public class PendingTransaction extends javax.swing.JFrame {
 
     MyLinkedList linkedList = new MyLinkedList();
+    StringManipulation strManipulate = new StringManipulation();
 
     /**
      * Creates new form tans
@@ -59,10 +61,7 @@ public class PendingTransaction extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("D:\\Nelson\\Programming\\Programming Language\\ams\\src\\main\\java\\com\\mycompany\\ams\\resources\\logo.png")); // NOI18N
-
         jButton3.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jButton3.setIcon(new javax.swing.ImageIcon("D:\\Nelson\\Programming\\Programming Language\\ams\\src\\main\\java\\com\\mycompany\\ams\\resources\\small-admin-logo.png")); // NOI18N
         jButton3.setText("Admin Account");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,12 +99,11 @@ public class PendingTransaction extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(58, 69, 76));
-        jLabel2.setText("to edit trasanction's details");
+        jLabel2.setText("pending transaction list");
 
         jButton1.setBackground(new java.awt.Color(244, 245, 244));
         jButton1.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(221, 48, 49));
-        jButton1.setIcon(new javax.swing.ImageIcon("D:\\Nelson\\Programming\\Programming Language\\ams\\src\\main\\java\\com\\mycompany\\ams\\resources\\accept-icon.png")); // NOI18N
         jButton1.setText(" Accept");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,7 +114,6 @@ public class PendingTransaction extends javax.swing.JFrame {
         jButton2.setBackground(new java.awt.Color(244, 245, 244));
         jButton2.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
         jButton2.setForeground(new java.awt.Color(221, 48, 49));
-        jButton2.setIcon(new javax.swing.ImageIcon("D:\\Nelson\\Programming\\Programming Language\\ams\\src\\main\\java\\com\\mycompany\\ams\\resources\\decline-icon.png")); // NOI18N
         jButton2.setText(" Decline");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -241,10 +238,10 @@ public class PendingTransaction extends javax.swing.JFrame {
                             FileWriter fileWriter = new FileWriter("TenantsDB.txt", true);
                             BufferedWriter writer = new BufferedWriter(fileWriter);
 
-                            // Append the tenant details to the file
-                            writer.write(currentNode.getIdNo() + "/" + currentNode.getFullname() + "/" + currentNode.getContactNo() + "/" + currentNode.getEmail() + "/" + currentNode.getBalance() + "/" + currentNode.getSecurityDeposit() + "/" + currentNode.getFloorNo() + "/" + currentNode.getUnitNo() + "\n");
-
-                            // Close the buffered writer
+                            String data = currentNode.getIdNo() + "/" + currentNode.getFullname() + "/" + currentNode.getContactNo() + "/" + currentNode.getEmail() + "/" + currentNode.getBalance() + "/" + currentNode.getSecurityDeposit() + "/" + currentNode.getFloorNo() + "/" + currentNode.getUnitNo();
+                            String encryptedData = strManipulate.encrypt(data);
+                            writer.write(encryptedData);
+                            writer.newLine();
                             writer.close();
                             DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
                             model.removeRow(row);
@@ -333,7 +330,10 @@ public class PendingTransaction extends javax.swing.JFrame {
         try {
             writer = new BufferedWriter(new FileWriter("PendingTransDB.txt"));
             while (currentNode != null) {
-                writer.write(currentNode.getIdNo() + "/" + currentNode.getFullname() + "/" + currentNode.getContactNo() + "/" + currentNode.getEmail() + "/" + currentNode.getBalance() + "/" + currentNode.getSecurityDeposit() + "/" + currentNode.getFloorNo() + "/" + currentNode.getUnitNo() + "\n");
+                String data = currentNode.getIdNo() + "/" + currentNode.getFullname() + "/" + currentNode.getContactNo() + "/" + currentNode.getEmail() + "/" + currentNode.getBalance() + "/" + currentNode.getSecurityDeposit() + "/" + currentNode.getFloorNo() + "/" + currentNode.getUnitNo();
+                String encryptedData = strManipulate.encrypt(data);
+                writer.write(encryptedData);
+                writer.newLine();
                 currentNode = currentNode.next;
             }
             writer.close();
@@ -351,10 +351,10 @@ public class PendingTransaction extends javax.swing.JFrame {
             reader = new BufferedReader(new FileReader("PendingTransDB.txt"));
             String line;
             while ((line = reader.readLine()) != null) {
+                line = strManipulate.decrypt(line);
                 System.out.println(" " + line);
                 String[] data = line.split("/");
                 linkedList.add(data[0], data[1], data[2], data[3], Integer.parseInt(data[4]), Integer.parseInt(data[5]), Integer.parseInt(data[6]), Integer.parseInt(data[7]));
-
             }
 
             reader.close();
@@ -377,31 +377,6 @@ public class PendingTransaction extends javax.swing.JFrame {
         }
     }
 
-    // Node currentNode = linkedList.head;
-
-    /*       
-    private void saveEditedData() {
-        Node currentNode = linkedList.head;
-
-        
-        while((currentNode != null) && !(currentNode.getIdNo().equals(selectedTenantIdNo))){
-            currentNode = currentNode.next;
-        }
-        
-        currentNode.setFullname(clientFullName.getText());
-        currentNode.setFloorNo(Integer.parseInt(clientFloor.getText()));
-        currentNode.setUnitNo(Integer.parseInt(clientRoom.getText()));      
-        saveToDB();
-    }
-    
-    
-    private void acceptToDB(){
-        
-    }
-    
-    private void declinetToDB(){
-        
-    } */
     /**
      * @param args the command line arguments
      */

@@ -141,7 +141,6 @@ public class PendingTransaction extends javax.swing.JFrame {
                 "Name", "Floor No", "Unit No"
             }
         ));
-        jTable1.setRowHeight(27);
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -295,7 +294,7 @@ public class PendingTransaction extends javax.swing.JFrame {
     
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
         AdminPage adminPage = new AdminPage();
-        adminPage.setVisible(true);
+        adminPage.show();
         dispose();
     }//GEN-LAST:event_cancelActionPerformed
 
@@ -370,6 +369,7 @@ public class PendingTransaction extends javax.swing.JFrame {
         //linkedList.display();
         Node currentNode = linkedList.head;
         while (currentNode != null) {
+            //System.out.println(" " + currentNode.getIdNo());
             clientIdNo.add(currentNode.getIdNo());
             Object[] rowData = {
                 currentNode.getFullname(),
